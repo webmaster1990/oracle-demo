@@ -28,7 +28,7 @@ class SiderMenu extends React.Component {
               </Link>
             </Menu.Item>
             <Menu.Item key="2">
-              <Link to='/dashboard'>
+              <Link to='/profile'>
                 <Icon type='profile'/>
                 <span>My Access</span>
               </Link>
