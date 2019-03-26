@@ -1,8 +1,31 @@
 import React, { Component } from 'react';
+import { message } from 'antd';
 import { Link } from 'react-router-dom';
 import { Button, Card, CardBody, CardGroup, Col, Container, Form, Input, InputGroup, InputGroupAddon, InputGroupText, Row } from 'reactstrap';
 
 class Login extends Component {
+  
+  state = {
+    username: '',
+    password: ''
+  }
+  
+  onChange = (event) => {
+    this.setState({
+      [event.target.name]: event.target.value,
+    });
+  }
+  
+  onLogin = () => {
+    const {username, password} = this.state;
+    if (username === 'admin' && password === 'admin') {
+      localStorage.setItem('token', 'xyz');
+      this.props.history.push('/');
+    } else {
+      message.error('Please enter valid username and password! (admin / admin)');
+    }
+  }
+  
   render() {
     return (
       <div className="app flex-row align-items-center">
@@ -12,7 +35,6 @@ class Login extends Component {
               <CardGroup>
                 <Card className="p-4">
                   <CardBody>
-                    <Form>
                       <h1>Login</h1>
                       <p className="text-muted">Sign In to your account</p>
                       <InputGroup className="mb-3">
@@ -21,7 +43,7 @@ class Login extends Component {
                             <i className="icon-user"></i>
                           </InputGroupText>
                         </InputGroupAddon>
-                        <Input type="text" placeholder="Username" autoComplete="username" />
+                        <Input type="text" placeholder="Username" onChange={this.onChange} name="username" autoComplete="username" />
                       </InputGroup>
                       <InputGroup className="mb-4">
                         <InputGroupAddon addonType="prepend">
@@ -29,17 +51,16 @@ class Login extends Component {
                             <i className="icon-lock"></i>
                           </InputGroupText>
                         </InputGroupAddon>
-                        <Input type="password" placeholder="Password" autoComplete="current-password" />
+                        <Input type="password" placeholder="Password" onChange={this.onChange} name="password" autoComplete="current-password" />
                       </InputGroup>
                       <Row>
                         <Col xs="6">
-                          <Button color="primary" className="px-4">Login</Button>
+                          <Button color="primary" className="px-4" onClick={this.onLogin}>Login</Button>
                         </Col>
                         <Col xs="6" className="text-right">
                           <Button color="link" className="px-0">Forgot password?</Button>
                         </Col>
                       </Row>
-                    </Form>
                   </CardBody>
                 </Card>
                 <Card className="text-white bg-primary py-5 d-md-down-none" style={{ width: '44%' }}>

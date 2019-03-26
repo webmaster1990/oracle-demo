@@ -19,9 +19,9 @@ class DefaultLayout extends Component {
 
   loading = () => <div className="loading">{' '}<PropagateLoader color={'#165d93'} /></div>
 
-  signOut(e) {
-    e.preventDefault()
-    this.props.history.push('/login')
+  signOut = () => {
+    localStorage.removeItem('token');
+    this.props.history.push('/login');
   }
 
   render() {
@@ -29,7 +29,7 @@ class DefaultLayout extends Component {
       <div className="app">
         <AppHeader fixed>
           <Suspense fallback={<div/>}>
-            <DefaultHeader onLogout={e=>this.signOut(e)}/>
+            <DefaultHeader onLogout={this.signOut}/>
           </Suspense>
         </AppHeader>
         <div className="app-body">
