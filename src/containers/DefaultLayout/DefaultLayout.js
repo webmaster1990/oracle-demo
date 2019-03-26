@@ -1,23 +1,12 @@
 import React, { Component, Suspense } from 'react';
 import { Redirect, Route, Switch } from 'react-router-dom';
 import { Container } from 'reactstrap';
-
 import {
   AppAside,
   AppBreadcrumb,
   AppFooter,
   AppHeader,
-  AppSidebar,
-  AppSidebarFooter,
-  AppSidebarForm,
-  AppSidebarHeader,
-  AppSidebarMinimizer,
-  AppSidebarNav,
 } from '@coreui/react';
-// sidebar nav config
-import navigation from '../../_nav';
-// routes config
-import { Menu, Icon } from 'antd';
 import { PropagateLoader } from 'react-spinners';
 import Sider from './SiderMenu';
 import routes from '../../routes';

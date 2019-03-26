@@ -1,23 +1,17 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { Badge, DropdownItem, DropdownMenu, DropdownToggle, Nav, NavItem, NavLink } from 'reactstrap';
-import PropTypes from 'prop-types';
-
+import { connect } from 'react-redux'
 import { AppAsideToggler, AppHeaderDropdown, AppNavbarBrand, AppSidebarToggler } from '@coreui/react';
+import { toggleSideBar } from '../../redux/actions/settings';
 import logo from '../../assets/img/logo.png'
 import sygnet from '../../assets/img/brand/sygnet.svg'
-
-const propTypes = {
-  children: PropTypes.node,
-};
-
-const defaultProps = {};
 
 class DefaultHeader extends Component {
   render() {
 
     // eslint-disable-next-line
-    const { children, ...attributes } = this.props;
+    const { toggleSideBar } = this.props;
 
     return (
       <React.Fragment>
@@ -26,7 +20,7 @@ class DefaultHeader extends Component {
           full={{ src: logo, width: 'auto', height: 19, alt: 'CoreUI Logo' }}
           minimized={{ src: sygnet, width: 30, height: 30, alt: 'CoreUI Logo' }}
         />
-        <span onClick={() => window.toggleMenu()}>
+        <span onClick={() => toggleSideBar()}>
           <AppSidebarToggler className="d-md-down-none" display="lg" />
         </span>
         <Nav className="d-md-down-none" navbar>
@@ -78,7 +72,10 @@ class DefaultHeader extends Component {
   }
 }
 
-DefaultHeader.propTypes = propTypes;
-DefaultHeader.defaultProps = defaultProps;
+const mapDispatchToProps = (dispatch) => ({
+  toggleSideBar: (state) => {
+    return dispatch(toggleSideBar(state))
+  }
+});
 
-export default DefaultHeader;
+export default connect(null, mapDispatchToProps)(DefaultHeader)

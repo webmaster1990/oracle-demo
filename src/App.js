@@ -1,10 +1,21 @@
 import React, { Component } from 'react';
-import { HashRouter, Route, Switch } from 'react-router-dom';
+import { Router, Route, Switch } from 'react-router-dom';
 import { PropagateLoader } from 'react-spinners';
-// import { renderRoutes } from 'react-router-config';
+import { createBrowserHistory } from 'history'
+import { createStore } from 'redux'
+import { Provider } from 'react-redux'
 import Loadable from 'react-loadable';
+import { allReducers } from './redux/reducers';
 import './App.scss';
 import 'antd/dist/antd.min.css';
+
+const store = createStore(
+  allReducers,
+  {},
+  window.devToolsExtension && window.devToolsExtension()
+);
+
+const history = createBrowserHistory();
 
 const loading = () => <div className="loading">{' '}<PropagateLoader color={'#165d93'} /></div>;
 
@@ -39,15 +50,17 @@ class App extends Component {
 
   render() {
     return (
-      <HashRouter>
-          <Switch>
-            <Route exact path="/login" name="Login Page" component={Login} />
-            <Route exact path="/register" name="Register Page" component={Register} />
-            <Route exact path="/404" name="Page 404" component={Page404} />
-            <Route exact path="/500" name="Page 500" component={Page500} />
-            <Route path="/" name="Home" component={DefaultLayout} />
-          </Switch>
-      </HashRouter>
+     <Provider store={store}>
+        <Router history={history}>
+            <Switch>
+              <Route exact path="/login" name="Login Page" component={Login} />
+              <Route exact path="/register" name="Register Page" component={Register} />
+              <Route exact path="/404" name="Page 404" component={Page404} />
+              <Route exact path="/500" name="Page 500" component={Page500} />
+              <Route path="/" name="Home" component={DefaultLayout} />
+            </Switch>
+        </Router>
+     </Provider>
     );
   }
 }

@@ -1,32 +1,16 @@
 import React from 'react';
-import { Menu, Icon, Button } from 'antd';
+import { Link } from 'react-router-dom';
+import { connect } from 'react-redux'
+import { Menu, Icon } from 'antd';
 import {
   AppSidebar,
 } from '@coreui/react';
 import './customSidebar.scss';
 
-const SubMenu = Menu.SubMenu;
-
-export default class SiderMenu extends React.Component {
-  state = {
-    collapsed: false,
-  }
-  
-  componentWillMount() {
-    window.toggleMenu = () => {
-      this.setState({
-        collapsed: !this.state.collapsed,
-      });
-    }
-  }
-  
-  toggleCollapsed = () => {
-    this.setState({
-      collapsed: !this.state.collapsed,
-    });
-  }
+class SiderMenu extends React.Component {
   
   render() {
+    const { sideBarCollapsed } = this.props;
     return (
       <AppSidebar fixed display="lg">
         <div className="custom-sidebar">
@@ -35,37 +19,29 @@ export default class SiderMenu extends React.Component {
             defaultOpenKeys={['sub1']}
             mode="inline"
             theme="dark"
-            inlineCollapsed={this.state.collapsed}
+            inlineCollapsed={sideBarCollapsed}
           >
             <Menu.Item key="1">
-              <Icon type="pie-chart" />
-              <span>Option 1</span>
+              <Link to='/dashboard'>
+                <Icon type='home'/>
+                <span>Dashboard</span>
+              </Link>
             </Menu.Item>
             <Menu.Item key="2">
-              <Icon type="desktop" />
-              <span>Option 2</span>
+              <Link to='/dashboard'>
+                <Icon type='profile'/>
+                <span>My Access</span>
+              </Link>
             </Menu.Item>
-            <Menu.Item key="3">
-              <Icon type="inbox" />
-              <span>Option 3</span>
-            </Menu.Item>
-            <SubMenu key="sub1" title={<span><Icon type="mail" /><span>Navigation One</span></span>}>
-              <Menu.Item key="5">Option 5</Menu.Item>
-              <Menu.Item key="6">Option 6</Menu.Item>
-              <Menu.Item key="7">Option 7</Menu.Item>
-              <Menu.Item key="8">Option 8</Menu.Item>
-            </SubMenu>
-            <SubMenu key="sub2" title={<span><Icon type="appstore" /><span>Navigation Two</span></span>}>
-              <Menu.Item key="9">Option 9</Menu.Item>
-              <Menu.Item key="10">Option 10</Menu.Item>
-              <SubMenu key="sub3" title="Submenu">
-                <Menu.Item key="11">Option 11</Menu.Item>
-                <Menu.Item key="12">Option 12</Menu.Item>
-              </SubMenu>
-            </SubMenu>
           </Menu>
         </div>
       </AppSidebar>
     );
   }
 }
+
+const mapStateToProps = (state) => ({
+  sideBarCollapsed: state.settings.sideBarCollapsed,
+});
+
+export default connect(mapStateToProps)(SiderMenu)
