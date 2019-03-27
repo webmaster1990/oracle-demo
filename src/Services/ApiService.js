@@ -1,22 +1,19 @@
 import axios from 'axios';
 
 const axiosInstance = axios.create({
-  baseURL: 'http://129.213.127.79:14000/iam/governance/selfservice/api/v1/',
+  baseURL: '/iam/governance',
 });
 
 export class ApiService {
+  
+  getAuthToken = () => localStorage.getItem('access_token');
+  
   async getData(url, headers, cancelToken) {
     const config = {
       headers: {
-        'Content-Type': 'application/json',
-        'Cache-Control': 'no-cache',
-        'Pragma': 'no-cache',
-        'auth': {
-          username: 'xelsysadm',
-          password: 'MonDay2019##'
-        },
-        'authorization': 'Basic ' + btoa('xelsysadm:MonDay2019##'),
-        ...(headers || {}),
+        "content-type": "application/json",
+        'authorization': `Bearer ${this.getAuthToken()}`,
+        ...(headers || {})
       }
     };
     if (cancelToken && cancelToken.token) {
@@ -30,14 +27,7 @@ export class ApiService {
     const config = {
       headers: {
         'Content-Type': 'application/json',
-        referrer: 'no-referrer',
-        'Cache-Control': 'no-cache',
-        'Pragma': 'no-cache',
-        'auth': {
-          username: 'xelsysadm',
-          password: 'MonDay2019##'
-        },
-        'authorization': 'Basic ' + btoa('xelsysadm:MonDay2019##'),
+        'authorization': `Bearer ${this.getAuthToken()}`,
         ...(headers || {})
       }
     };
@@ -45,8 +35,21 @@ export class ApiService {
     return response.data;
   }
   
+  async login({username, password}) {
+    const config = {
+      headers: {
+        'content-type': 'application/json',
+        'Accept': 'application/json',
+        'X-REQUESTED-BY': '12345',
+        'authorization': `Basic ${btoa(`${username}:${password}`)}`,
+      }
+    };
+    const response = await axiosInstance.post('/token/api/v1/tokens', {}, config);
+    return response.data;
+  }
+  
   async getPendingReqests() {
-    return this.getData('requests?requestStatus=pending');
+    return this.getData('selfservice/api/v1/certifications');
   }
 
 }

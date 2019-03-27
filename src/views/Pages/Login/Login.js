@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
 import { message } from 'antd';
 import { Link } from 'react-router-dom';
-import { Button, Card, CardBody, CardGroup, Col, Container, Form, Input, InputGroup, InputGroupAddon, InputGroupText, Row } from 'reactstrap';
+import { Button, Card, CardBody, CardGroup, Col, Container, Input, InputGroup, InputGroupAddon, InputGroupText, Row } from 'reactstrap';
+import { ApiService } from '../../../Services/ApiService';
 
 class Login extends Component {
+  _dataContext = new ApiService();
   
   state = {
     username: '',
@@ -16,13 +18,19 @@ class Login extends Component {
     });
   }
   
-  onLogin = () => {
+  onLogin = async () => {
     const {username, password} = this.state;
-    if (username === 'admin' && password === 'admin') {
-      localStorage.setItem('token', 'xyz');
-      this.props.history.push('/');
+    if (username && password) {
+      const response = await this._dataContext.login({username, password});
+      if (response && response.accessToken) {
+        localStorage.setItem('access_token', response.accessToken );
+        localStorage.setItem('token_expire', response.expiresIn);
+        this.props.history.push('/dashboard');
+      } else {
+        message.error('Please enter valid username and password (xelsysadm | MonDay2019##)!');
+      }
     } else {
-      message.error('Please enter valid username and password! (admin / admin)');
+      message.error('Please enter username and password!');
     }
   }
   

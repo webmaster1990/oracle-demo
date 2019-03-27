@@ -54,6 +54,7 @@
     "not ie <= 9",
     "not op_mini all"
   ],
+  "proxy": "http://129.213.127.79:14000/",
   "jest": {
     "collectCoverageFrom": [
       "src/**/*.{js,jsx}",

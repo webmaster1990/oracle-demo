@@ -48,13 +48,13 @@ const Page500 = Loadable({
 
 const PrivateRoute = ({ component: Component }) => (
   <Route render={(props) =>
-    localStorage.getItem('token') ? <Component {...props} /> : <Redirect to='/login' />
+    localStorage.getItem('access_token') ? <Component {...props} /> : <Redirect to='/login' />
   }/>
 );
 
 const RedirectRoute = ({ component: Component }) => (
   <Route render={(props) =>
-    localStorage.getItem('token') ? <Redirect to='/dashboard' /> : <Component {...props} />
+    localStorage.getItem('access_token') ? <Redirect to='/dashboard' /> : <Component {...props} />
   }/>
 );
 

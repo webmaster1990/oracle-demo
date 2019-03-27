@@ -20,7 +20,7 @@ class DefaultLayout extends Component {
   loading = () => <div className="loading">{' '}<PropagateLoader color={'#165d93'} /></div>
 
   signOut = () => {
-    localStorage.removeItem('token');
+    localStorage.removeItem('access_token');
     this.props.history.push('/login');
   }
 
