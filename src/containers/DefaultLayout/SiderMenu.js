@@ -8,7 +8,7 @@ import {
 import './customSidebar.scss';
 
 class SiderMenu extends React.Component {
-  
+
   render() {
     const { sideBarCollapsed } = this.props;
     return (
@@ -28,9 +28,15 @@ class SiderMenu extends React.Component {
               </Link>
             </Menu.Item>
             <Menu.Item key="2">
+              <Link to='/myaccess'>
+                <Icon type='info-circle'/>
+                <span>My Access</span>
+              </Link>
+            </Menu.Item>
+            <Menu.Item key="3">
               <Link to='/profile'>
                 <Icon type='profile'/>
-                <span>My Access</span>
+                <span>Profile</span>
               </Link>
             </Menu.Item>
           </Menu>

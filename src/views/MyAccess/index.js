@@ -85,12 +85,12 @@ class MyAccess extends Component {
                         </Row>
                         <Row>
                           <Col md="12" sm="12" >
-                            <p><h5> ADUser1</h5></p>
+                            <h5> ADUser1</h5>
                             <p className="span-font">ADUser1</p>
-                            <p className="span-font"><b>Account Name:</b>PTRIP</p>
-                            <p className="span-font"><b>Account Type:</b>Primary</p>
-                            <p className="span-font"><b>Provisioned On Date:</b>March 18,2019 04:16 PM</p>
-                            <p className="span-font"><b>StartDate:</b>March 18,2019 04:16 PM</p>
+                            <p className="span-font"><b>Account Name: </b>PTRIP</p>
+                            <p className="span-font"><b>Account Type: </b>Primary</p>
+                            <p className="span-font"><b>Provisioned On Date: </b>March 18,2019 04:16 PM</p>
+                            <p className="span-font"><b>StartDate: </b>March 18,2019 04:16 PM</p>
                             <Badge className="badge bg-blue-card card-span">Provisioned</Badge>
                           </Col>
                         </Row>
@@ -131,11 +131,11 @@ class MyAccess extends Component {
                         </Row>
                         <Row>
                           <Col md="12" sm="12" >
-                            <p><h5> ADUser1</h5></p>
+                            <h5> ADUser1</h5>
                             <p className="span-font">ADUser1</p>
-                            <p className="span-font"><b>Account Name:</b>PTRIP</p>
-                            <p className="span-font"><b>Account Type:</b>Primary</p>
-                            <p className="span-font"><b>StartDate:</b>March 18,2019 04:16 PM</p>
+                            <p className="span-font"><b>Account Name: </b>PTRIP</p>
+                            <p className="span-font"><b>Account Type: </b>Primary</p>
+                            <p className="span-font"><b>StartDate: </b>March 18,2019 04:16 PM</p>
                             <Badge className="badge bg-blue-card card-span">Provisioned</Badge>
                           </Col>
                         </Row>
@@ -173,9 +173,9 @@ class MyAccess extends Component {
                         </Row>
                         <Row>
                           <Col md="12" sm="12" >
-                            <p><h5>All Users</h5></p>
+                            <h5>All Users</h5>
                             <p className="span-font">Default rol for all users</p>
-                            <p className="span-font"><b>Assigned On Date:</b>March 18,2019 4:10 PM</p>
+                            <p className="span-font"><b>Assigned On Date: </b>March 18,2019 4:10 PM</p>
                             <Badge className="badge bg-blue-card card-span">Provisioned</Badge>
                           </Col>
 

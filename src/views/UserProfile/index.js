@@ -13,17 +13,17 @@ class Profile extends Component{
   profile = () => {
     return (
         <Col md="12" sm="12" >
-          <p><h5> ADUser1</h5></p>
+          <h5> ADUser1</h5>
           <p>Pankaj Tripathi</p>
-          <p><b>First Name:</b>Pankaj</p>
-          <p><b>Last Name:</b>Tripathi</p>
-          <p><b>Display Name:</b>Pankaj Tripathi</p>
-          <p><b>User Login:</b>PTRIP</p>
-          <p><b>Email:</b></p>
-          <p><b>Organization Name:</b>Xellerate Users</p>
-          <p><b>Role:</b>EMP</p>
-          <p><b>Date Created:</b>March 18,2019 04:13 PM</p>
-          <p><b>Manager:</b>System Administrator</p>
+          <p><b>First Name: </b>Pankaj</p>
+          <p><b>Last Name: </b>Tripathi</p>
+          <p><b>Display Name: </b>Pankaj Tripathi</p>
+          <p><b>User Login: </b>PTRIP</p>
+          <p><b>Email: </b></p>
+          <p><b>Organization Name: </b>Xellerate Users</p>
+          <p><b>Role: </b>EMP</p>
+          <p><b>Date Created: </b>March 18,2019 04:13 PM</p>
+          <p><b>Manager: </b>System Administrator</p>
         </Col>
     )
   }
