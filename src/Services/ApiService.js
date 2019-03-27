@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const axiosInstance = axios.create({
-  baseURL: '/iam/governance',
+  baseURL: process.env.NODE_ENV === 'production' ? 'http://129.213.127.79:14000/iam/governance' : '/iam/governance',
 });
 
 export class ApiService {

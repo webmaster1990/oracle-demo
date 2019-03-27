@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import {
-  Row, Col, Badge,
+  Row, Badge,
 } from 'reactstrap';
 import { Progress } from 'antd';
 import ProgressCard from './ProgressCard';
