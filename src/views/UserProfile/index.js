@@ -1,6 +1,6 @@
   import React, { Component } from 'react';
   import { Link } from 'react-router-dom';
-  import {Card, CardBody, Col, Nav, NavItem, NavLink, Row, TabContent, TabPane, Button} from "reactstrap";
+  import {Card, CardBody, Col, Nav, NavItem, NavLink, Row, TabContent, TabPane, Button, Badge} from "reactstrap";
 
   class Profile extends Component{
     constructor(props) {
@@ -12,30 +12,19 @@
 
     profile = () => {
       return (
-        <div className="bd-example">
-        <dl className="row">
-          <dt className="col-sm-3"> <h5>Pankaj Tripathi</h5></dt>
-          <dd className="col-sm-9"></dd>
-          <dt className="col-sm-3">First Name:</dt>
-          <dd className="col-sm-9">Pankaj</dd>
-          <dt className="col-sm-3">Last Name:</dt>
-          <dd className="col-sm-9">Tripathi</dd>
-          <dt className="col-sm-3">Display Name:</dt>
-          <dd className="col-sm-9">Pankaj Tripathi</dd>
-          <dt className="col-sm-3">User Login:</dt>
-          <dd className="col-sm-9">PTRIP</dd>
-          <dt className="col-sm-3">Email:</dt>
-          <dd className="col-sm-9"></dd>
-          <dt className="col-sm-3">Organization Name:</dt>
-          <dd className="col-sm-9">Xellerate Users</dd>
-          <dt className="col-sm-3">Role:</dt>
-          <dd className="col-sm-9">EMP</dd>
-          <dt className="col-sm-3">Date Created:</dt>
-          <dd className="col-sm-9">March 18,2019 04:13 PM</dd>
-          <dt className="col-sm-3">Manager:</dt>
-          <dd className="col-sm-9">System Administrator</dd>
-        </dl>
-        </div>
+          <Col md="12" sm="12" >
+            <p><h5> ADUser1</h5></p>
+            <p>Pankaj Tripathi</p>
+            <p><b>First Name:</b>Pankaj</p>
+            <p><b>Last Name:</b>Tripathi</p>
+            <p><b>Display Name:</b>Pankaj Tripathi</p>
+            <p><b>User Login:</b>PTRIP</p>
+            <p><b>Email:</b></p>
+            <p><b>Organization Name:</b>Xellerate Users</p>
+            <p><b>Role:</b>EMP</p>
+            <p><b>Date Created:</b>March 18,2019 04:13 PM</p>
+            <p><b>Manager:</b>System Administrator</p>
+          </Col>
       )
     }
 
@@ -81,9 +70,6 @@
                     <h5 style={{color:"#999"}}>EMP</h5>
                   </Col>
                   <Col className="text-center">
-                    {/*<Button className="m-0 p-0" color="link">
-                      Toggle item
-                    </Button>*/}
                     <Link to="/" style={{fontSize:"20px"}}>Update Profile</Link>
                   </Col>
                 </CardBody>

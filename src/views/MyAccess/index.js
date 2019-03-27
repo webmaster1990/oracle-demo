@@ -11,9 +11,12 @@ import {
   InputGroupText,
   Input,
   CardHeader,
-  Label
+  Label,
+  Breadcrumb,
+  Badge
 } from "reactstrap";
-
+import { Checkbox } from 'antd';
+import './myAccess.scss'
 class MyAccess extends Component {
   constructor(props) {
     super(props);
@@ -25,7 +28,7 @@ class MyAccess extends Component {
       <div className="animated fadeIn">
         <Row>
           <Col lg="12" md="12" xs="12" sm="12">
-            <Card>
+            <Card className="card-border">
               <CardBody>
                 <Row>
                   <Col>
@@ -47,41 +50,137 @@ class MyAccess extends Component {
                 </Row>
                 <Row>
                   <Col xs="12" sm="4">
-                    <Card>
-                      <CardHeader style={{backgroundColor:"#526069"}}>
-                          <h5 style={{color:"#fff"}}>APPLICATIONS</h5>
-                          <span style={{color:"#fff" ,fontSize: "13px"}}>Application that I have access to</span>
+                    <Card className="card-border">
+                      <CardHeader className="bg-black">
+                          <h5 className="card-header-color">APPLICATIONS</h5>
+                          <span className="card-span">Application that I have access to</span>
                       </CardHeader>
                       <CardBody>
                        <Row>
                          <Col>
-                           <Input className="form-check-input" type="checkbox" id="checkbox1" name="checkbox1" value="option1" />
-                           <Label check className="form-check-label" htmlFor="checkbox1">Select All</Label>
-                         </Col>
-                         <Col>aa</Col>
+                         <Checkbox className="text-left">Select All</Checkbox>
+                         <span className="pull-right">
+                           <a className="btn btn-danger card-icon" href="#">
+                             <i className="fa fa-trash-o"/>
+                           </a>
+                         </span>
+                       </Col>
                        </Row>
+                       <hr className="hr" />
+                        <Row>
+                          <Col>
+                            <Checkbox/>
+                          <span className="pull-right" >
+                            <a className="btn bg-blue-card mr-1 card-icon" href="#">
+                              <i className="fa fa-calendar-plus-o"/>
+                            </a>
+                            <a className="btn bg-blue-card mr-1 card-icon" href="#">
+                              <i className="fa fa-edit"/>
+                            </a>
+                            <a className="btn btn-danger mr-1 card-icon" href="#">
+                              <i className="fa fa-trash-o"/>
+                            </a>
+                          </span>
+                          </Col>
+                        </Row>
+                        <Row>
+                          <Col md="12" sm="12" >
+                            <p><h5> ADUser1</h5></p>
+                            <p className="span-font">ADUser1</p>
+                            <p className="span-font"><b>Account Name:</b>PTRIP</p>
+                            <p className="span-font"><b>Account Type:</b>Primary</p>
+                            <p className="span-font"><b>Provisioned On Date:</b>March 18,2019 04:16 PM</p>
+                            <p className="span-font"><b>StartDate:</b>March 18,2019 04:16 PM</p>
+                            <Badge className="badge bg-blue-card card-span">Provisioned</Badge>
+                          </Col>
+                        </Row>
+                        <hr className="hr" />
                       </CardBody>
                     </Card>
                   </Col>
                   <Col xs="12" sm="4">
-                    <Card>
-                      <CardHeader style={{backgroundColor:"#64a6ea"}}>
-                          <h5 style={{color:"#fff"}}>ENTITLEMENTS</h5>
-                          <span style={{color:"#fff" ,fontSize: "13px"}}>My entitlements within the company </span>
+                    <Card className="card-border">
+                      <CardHeader className="bg-blue-card">
+                          <h5 className="card-header-color">ENTITLEMENTS</h5>
+                          <span className="card-span">My entitlements within the company </span>
                       </CardHeader>
                       <CardBody>
-                        vcbvcbcvbvcb
+                        <Row>
+                          <Col>
+                            <Checkbox className="text-left">Select All</Checkbox>
+                            <span className="pull-right">
+                           <a className="btn btn-danger card-icon" href="#">
+                             <i className="fa fa-trash-o"/>
+                           </a>
+                         </span>
+                          </Col>
+                        </Row>
+                        <hr className="hr" />
+                        <Row>
+                          <Col>
+                            <Checkbox/>
+                            <span className="pull-right" >
+                            <a className="btn bg-blue-card mr-1 card-icon" href="#">
+                              <i className="fa fa-calendar-plus-o"/>
+                            </a>
+                            <a className="btn btn-danger mr-1 card-icon" href="#">
+                              <i className="fa fa-trash-o"/>
+                            </a>
+                          </span>
+                          </Col>
+                        </Row>
+                        <Row>
+                          <Col md="12" sm="12" >
+                            <p><h5> ADUser1</h5></p>
+                            <p className="span-font">ADUser1</p>
+                            <p className="span-font"><b>Account Name:</b>PTRIP</p>
+                            <p className="span-font"><b>Account Type:</b>Primary</p>
+                            <p className="span-font"><b>StartDate:</b>March 18,2019 04:16 PM</p>
+                            <Badge className="badge bg-blue-card card-span">Provisioned</Badge>
+                          </Col>
+                        </Row>
+                        <hr className="hr" />
                       </CardBody>
                     </Card>
                   </Col>
                   <Col xs="12" sm="4">
-                    <Card>
-                      <CardHeader style={{backgroundColor:"#4dc18a"}}>
-                          <h5 style={{color:"#fff"}}>ROLES</h5>
-                          <span style={{color:"#fff" ,fontSize: "13px"}}>These are my roles within the organization</span>
+                    <Card className="card-border">
+                      <CardHeader className="bg-green">
+                          <h5 className="card-header-color">ROLES</h5>
+                          <span className="card-span">These are my roles within the organization</span>
                       </CardHeader>
                       <CardBody>
-                        vbcvbvcbvcbvcb
+                        <Row>
+                          <Col>
+                            <Checkbox className="text-left">Select All</Checkbox>
+                            <span className="pull-right">
+                           <a className="btn btn-danger card-icon" href="#">
+                             <i className="fa fa-trash-o"/>
+                           </a>
+                         </span>
+                          </Col>
+                        </Row>
+                        <hr className="hr" />
+                        <Row>
+                          <Col>
+                            <Checkbox/>
+                            <span className="pull-right" >
+                            <a className="btn btn-danger card-icon" href="#">
+                              <i className="fa fa-trash-o"/>
+                            </a>
+                          </span>
+                          </Col>
+                        </Row>
+                        <Row>
+                          <Col md="12" sm="12" >
+                            <p><h5>All Users</h5></p>
+                            <p className="span-font">Default rol for all users</p>
+                            <p className="span-font"><b>Assigned On Date:</b>March 18,2019 4:10 PM</p>
+                            <Badge className="badge bg-blue-card card-span">Provisioned</Badge>
+                          </Col>
+
+                        </Row>
+                        <hr className="hr" />
                       </CardBody>
                     </Card>
                   </Col>
