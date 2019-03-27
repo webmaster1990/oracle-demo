@@ -36,7 +36,7 @@ class Dashboard extends Component {
             <div>
               <p className="mb-0"><b>CN=Access Control Assistance Operators,CN=Builtin,DC=nimdex,DC=com</b></p>
               <Badge className="badge-red mt-2 mb-2" >Request Approved Fulfillment Failed</Badge>
-              <b>Baneficiaries:</b>
+              <p className="mb-1"><b>Baneficiaries:</b></p>
               <p className="mb-3">System Administrator</p>
               <p className="mb-1"><b>Request ID: </b>7003</p>
               <p className="mb-1"><b>Request Type: </b>Provision Entitlement</p>
