@@ -40,6 +40,7 @@ export class ApiService {
       headers: {
         'content-type': 'application/json',
         'Accept': 'application/json',
+        'origin': 'http://evil.com/',
         'X-REQUESTED-BY': '12345',
         'authorization': `Basic ${btoa(`${username}:${password}`)}`,
       }
