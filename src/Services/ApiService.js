@@ -15,6 +15,7 @@ export class ApiService {
           username: 'xelsysadm',
           password: 'MonDay2019##'
         },
+        'authorization': 'Basic ' + btoa('xelsysadm:MonDay2019##'),
         ...(headers || {}),
       }
     };
@@ -36,6 +37,7 @@ export class ApiService {
           username: 'xelsysadm',
           password: 'MonDay2019##'
         },
+        'authorization': 'Basic ' + btoa('xelsysadm:MonDay2019##'),
         ...(headers || {})
       }
     };
