@@ -91,26 +91,33 @@ class Dashboard extends Component {
             {
               certifications.count === 0 && <p className="text-center pt-2">You have no pending certification.</p>
             }
-                <div>
-                  <p><b>User_Certificate [System Administrator]</b></p>
-                  <Badge className="badge green small">New</Badge>
-                  <p className="mt-2"><b>Certificate ID: </b>61</p>
-                  <p className="mb-1"><b>Type: </b>User</p>
-                  <p className="mb-1"><b>Date Created : </b>March 20,2019 11:23 PM</p>
-                  <b className="mb-1">Progress</b>
-                  <Progress percent={30} className="mb-2"/>
-                </div>
-                <div className="certifications-content">
-                  <div className="mt-2 mb-2 pr-2 pl-2">
-                  <p className="pt-3"><b>User_Certificate [System Administrator]</b></p>
-                  <Badge className="badge green small">Complete</Badge>
-                  <p className="mb-1"><b>Certificate ID: </b>61</p>
-                  <p className="mb-1"><b>Type: </b>User</p>
-                  <p className="mb-1"><b>Date Created : </b>March 20,2019 11:23 PM</p>
-                  <b className="mb-1">Progress</b>
-                  <Progress percent={30} className="mb-2"/>
-                </div>
-                </div>
+            {
+              (certifications.certifications || []).map((certificate, i) => {
+                return (
+                  <div className="request-item" key={`cert-item-${i}`}>
+                    <p><b>{certificate.name}</b></p>
+                    <Badge className="badge green small">New</Badge>
+                    <p className="mt-2"><b>Certificate ID: </b>{certificate.id}</p>
+                    <p className="mb-1"><b>Type: </b>{certificate.type}</p>
+                    <p className="mb-1"><b>Date Created : </b>{moment(certificate.createdDate).format('MMMM Do YYYY h:mm:ss a')}</p>
+                    <b className="mb-1">Progress</b>
+                    <Progress percent={30} className="mb-2"/>
+                  </div>
+                )
+              })
+            }
+            {/*<div className="certifications-content">*/}
+              {/*<div className="mt-2 mb-2 pr-2 pl-2">*/}
+              {/*<p className="pt-3"><b>User_Certificate [System Administrator]</b></p>*/}
+              {/*<Badge className="badge green small">Complete</Badge>*/}
+              {/*<p className="mb-1"><b>Certificate ID: </b>61</p>*/}
+              {/*<p className="mb-1"><b>Type: </b>User</p>*/}
+              {/*<p className="mb-1"><b>Date Created : </b>March 20,2019 11:23 PM</p>*/}
+              {/*<b className="mb-1">Progress</b>*/}
+              {/*<Progress percent={30} className="mb-2"/>*/}
+            {/*</div>*/}
+            {/*</div>*/}
+            
           </ContentCard>
         </Row>
       </div>
