@@ -8,8 +8,8 @@ class Login extends Component {
   _dataContext = new ApiService();
   
   state = {
-    username: '',
-    password: ''
+    username: 'xelsysadm',
+    password: 'MonDay2019##'
   }
   
   onChange = (event) => {
@@ -39,6 +39,7 @@ class Login extends Component {
   }
   
   render() {
+    const { username, password } = this.state;
     return (
       <div className="app flex-row align-items-center">
         <Container>
@@ -55,7 +56,7 @@ class Login extends Component {
                             <i className="icon-user"></i>
                           </InputGroupText>
                         </InputGroupAddon>
-                        <Input type="text" placeholder="Username" onChange={this.onChange} name="username" autoComplete="username" />
+                        <Input type="text" placeholder="Username" value={username} onChange={this.onChange} name="username" autoComplete="username" />
                       </InputGroup>
                       <InputGroup className="mb-4">
                         <InputGroupAddon addonType="prepend">
@@ -63,7 +64,7 @@ class Login extends Component {
                             <i className="icon-lock"></i>
                           </InputGroupText>
                         </InputGroupAddon>
-                        <Input type="password" placeholder="Password" onChange={this.onChange} name="password" autoComplete="current-password" />
+                        <Input type="password" placeholder="Password" value={password} onChange={this.onChange} name="password" autoComplete="current-password" />
                       </InputGroup>
                       <Row>
                         <Col xs="6">
