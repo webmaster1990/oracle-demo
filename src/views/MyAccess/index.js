@@ -53,7 +53,7 @@ class MyAccess extends Component {
                     <Card className="card-border">
                       <CardHeader className="bg-black">
                           <h5 className="card-header-color">APPLICATIONS</h5>
-                          <span className="card-span">Application that I have access to</span>
+                          <span className="card-span-header">Application that I have access to</span>
                       </CardHeader>
                       <CardBody>
                        <Row>
@@ -102,7 +102,7 @@ class MyAccess extends Component {
                     <Card className="card-border">
                       <CardHeader className="bg-blue-card">
                           <h5 className="card-header-color">ENTITLEMENTS</h5>
-                          <span className="card-span">My entitlements within the company </span>
+                          <span className="card-span-header">My entitlements within the company </span>
                       </CardHeader>
                       <CardBody>
                         <Row>
@@ -147,7 +147,7 @@ class MyAccess extends Component {
                     <Card className="card-border">
                       <CardHeader className="bg-green">
                           <h5 className="card-header-color">ROLES</h5>
-                          <span className="card-span">These are my roles within the organization</span>
+                          <span className="card-span-header">These are my roles within the organization</span>
                       </CardHeader>
                       <CardBody>
                         <Row>

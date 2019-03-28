@@ -4,13 +4,16 @@ background-color: #526069;
 .bg-blue-card{
   background-color:#64a6ea
 }
+.bg-blue-orange{
+  background-color:#f0a655
+}
 .bg-green{
   background-color:#4dc18a
 }
 .card-header-color{
   color:#fff
 }
-.card-span {
+.card-span-header {
   color: #fff;
   font-size: 13px
 }
@@ -21,7 +24,7 @@ background-color: #526069;
   color: #fff;
 }
 .badge{
-  height: 25px;
+  height: 22px;
   padding-top: 6px;
   padding-left: 6px;
   padding-right: 6px;
@@ -39,4 +42,32 @@ background-color: #526069;
   font-size: 13px;
   margin-bottom: 0.25rem !important
 }
+.btn-dribbbl {
+  color: #76838f;
+  background-color: #e4eaec;
+  border-color: #e4eaec;
 
+}
+.inline-block{
+  display: inline-block !important;
+}
+.custom-button{
+  border-radius: 0 !important;
+  width: 60px !important;
+  display: inline-block !important;
+  margin-right: 5px !important;
+}
+.custom-button-small{
+  border-radius: 0 !important;
+  width: 25px !important;
+  display: inline-block !important;
+}
+.card-span {
+  color: #fff;
+  font-size: 10px;
+  text-shadow: none;
+  font-weight: normal;
+}
+.remove-btn-border-radius{
+  border-radius: 0 !important;
+}
