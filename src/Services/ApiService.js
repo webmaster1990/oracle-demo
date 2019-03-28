@@ -4,6 +4,17 @@ const axiosInstance = axios.create({
   baseURL: process.env.NODE_ENV === 'production' ? 'http://129.213.127.79:14000/iam/governance' : '/iam/governance',
 });
 
+// Add a 401 response0
+axiosInstance.interceptors.response.use((response) => (response), error => {
+  if (401 === (error.response && error.response.status)) {
+    localStorage.removeItem('access_token');
+    window.location.href =  '/login';
+    return false;
+  } else {
+    return Promise.reject(error);
+  }
+});
+
 export class ApiService {
   
   getAuthToken = () => localStorage.getItem('access_token');
@@ -19,8 +30,11 @@ export class ApiService {
     if (cancelToken && cancelToken.token) {
       config.cancelToken = cancelToken.token;
     }
-    const response = await axiosInstance.get(url, config);
-    return response.data;
+    let data = '';
+    const response = await axiosInstance.get(url, config).catch((err) => {
+      data = {error: err};
+    });
+    return data || response.data;
   }
   
   async postMethod(url, data, headers) {
@@ -49,7 +63,15 @@ export class ApiService {
     return response.data;
   }
   
-  async getPendingReqests() {
+  async getPendingApprovals() {
+    return this.getData('selfservice/api/v1/requests?view=pendingApprovals');
+  }
+  
+  async getPendingRequests() {
+    return this.getData('selfservice/api/v1/requests?requestStatus=pending');
+  }
+  
+  async getPendingCertifications() {
     return this.getData('selfservice/api/v1/certifications');
   }
 

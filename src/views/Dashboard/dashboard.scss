@@ -28,6 +28,13 @@
     padding: 10px;
     color: #fff;
   }
+  .card-body {
+    padding: 0 15px;
+  }
+  .request-item {
+    padding: 10px 0;
+    border-bottom: solid 1px #eee;
+  }
   &.header-gray {
     .card-header {
       background: #545f6a;
@@ -44,29 +51,7 @@
     }
   }
 }
-.badge-red{
-  color: #fff;
-  font-size: 13px;
-  height: 25px;
-  padding-top: 6px;
-  padding-left: 6px;
-  padding-right: 6px;
-  border-radius: 30px;
-  background-color: #ea4b51;
-}
-.badge-green{
-  color: #fff;
-  font-size: 13px;
-  height: 25px;
-  padding-top: 6px;
-  padding-left: 6px;
-  padding-right: 6px;
-  border-radius: 30px;
-  background-color: #46be89;
-}
+
  .certifications-content{
   background-color: #e7f2fe;
  }
-.content-card-body{
-  padding: 15px 10px
-}

@@ -91,7 +91,7 @@ class MyAccess extends Component {
                             <p className="span-font"><b>Account Type: </b>Primary</p>
                             <p className="span-font"><b>Provisioned On Date: </b>March 18,2019 04:16 PM</p>
                             <p className="span-font"><b>StartDate: </b>March 18,2019 04:16 PM</p>
-                            <Badge className="badge bg-blue-card card-span">Provisioned</Badge>
+                            <Badge className="badge bg-blue-card small">Provisioned</Badge>
                           </Col>
                         </Row>
                         <hr className="hr" />
@@ -136,7 +136,7 @@ class MyAccess extends Component {
                             <p className="span-font"><b>Account Name: </b>PTRIP</p>
                             <p className="span-font"><b>Account Type: </b>Primary</p>
                             <p className="span-font"><b>StartDate: </b>March 18,2019 04:16 PM</p>
-                            <Badge className="badge bg-blue-card card-span">Provisioned</Badge>
+                            <Badge className="badge blue small">Provisioned</Badge>
                           </Col>
                         </Row>
                         <hr className="hr" />
@@ -176,7 +176,7 @@ class MyAccess extends Component {
                             <h5>All Users</h5>
                             <p className="span-font">Default rol for all users</p>
                             <p className="span-font"><b>Assigned On Date: </b>March 18,2019 4:10 PM</p>
-                            <Badge className="badge bg-blue-card card-span">Provisioned</Badge>
+                            <Badge className="badge blue small">Provisioned</Badge>
                           </Col>
 
                         </Row>

@@ -12,7 +12,7 @@ const ContentCard = ({title, count, className, children}) => (
       <CardHeader>
         {title} <span className="pull-right count">{count}</span>
       </CardHeader>
-      <CardBody className="content-card-body">
+      <CardBody>
         {children}
       </CardBody>
     </Card>

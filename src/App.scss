@@ -13,3 +13,30 @@
 body {
   font-family: 'Roboto', sans-serif !important;
 }
+
+.badge {
+  color: #fff;
+  font-size: 13px;
+  height: 25px;
+  padding-top: 6px;
+  padding-left: 6px;
+  padding-right: 6px;
+  border-radius: 30px;
+  background-color: #ea4b51;
+  text-shadow: none;
+  font-weight: normal;
+
+  &.red {
+    background-color: #ea4b51;
+  }
+  &.green {
+    background-color: #46be89;
+  }
+  &.blue {
+    background-color:#64a6ea;
+  }
+  &.small {
+      font-size: 10px;
+      height: 22px;
+  }
+}

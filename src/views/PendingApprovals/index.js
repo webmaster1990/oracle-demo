@@ -114,7 +114,7 @@ class PendingApprovals extends Component {
                   </Col>
                   <Col md="2" xs="12" sm="12" className=" pl-0">
                     <div className="mt-5">
-                    <Badge className="badge bg-blue-orange card-span mr-1">Awaiting Approval</Badge>
+                    <Badge className="badge bg-blue-orange small mr-1">Awaiting Approval</Badge>
                     </div>
                   </Col>
                   <Col md="2" xs="12" sm="12" className="pl-0 pr-0">
