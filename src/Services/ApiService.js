@@ -74,5 +74,21 @@ export class ApiService {
   async getPendingCertifications() {
     return this.getData('selfservice/api/v1/certifications');
   }
+  
+  async getRoles() {
+    return this.getData('selfservice/api/v1/roles?userId=1');
+  }
+  
+  async getEntitlements() {
+    return this.getData('selfservice/api/v1/entitlements?userId=1');
+  }
+  
+  async getApplications() {
+    return this.getData('selfservice/api/v1/accounts?userId=1');
+  }
+  
+  async getPendingApprovalsDetailed() {
+    return this.getData('selfservice/api/v1/accounts?userId=1');
+  }
 
 }

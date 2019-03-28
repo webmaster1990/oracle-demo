@@ -17,19 +17,7 @@ background-color: #526069;
   color: #fff;
   font-size: 13px
 }
-.card-icon{
-  width: 26px;
-  height: 26px;
-  padding: 0 0 !important;
-  color: #fff;
-}
-.badge{
-  height: 22px;
-  padding-top: 6px;
-  padding-left: 6px;
-  padding-right: 6px;
-  border-radius: 30px;
-}
+
 .hr{
   border: none;
   height: 1px;
@@ -62,7 +50,12 @@ background-color: #526069;
   width: 25px !important;
   display: inline-block !important;
 }
-
+.card-span {
+  color: #fff;
+  font-size: 10px;
+  text-shadow: none;
+  font-weight: normal;
+}
 .remove-btn-border-radius{
   border-radius: 0 !important;
 }

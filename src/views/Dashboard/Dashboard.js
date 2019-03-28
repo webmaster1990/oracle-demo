@@ -39,7 +39,6 @@ class Dashboard extends Component {
     if (!pendingRes.error) {
       newState.pendingRequests = pendingRes;
     }
-    debugger;
     this.setState({
       ...newState,
       isLoading: false,
@@ -117,7 +116,6 @@ class Dashboard extends Component {
               {/*<Progress percent={30} className="mb-2"/>*/}
             {/*</div>*/}
             {/*</div>*/}
-            
           </ContentCard>
         </Row>
       </div>

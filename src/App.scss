@@ -40,3 +40,27 @@ body {
       height: 22px;
   }
 }
+
+.card-icon{
+  width: 35px;
+  height: 35px;
+  color: #fff;
+  font-size: 20px;
+  padding: 2px 0;
+  border-radius: 0;
+  color: #fff !important;
+  cursor: pointer;
+}
+
+.form-control {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+@media (max-width: 992px) {
+  .main {
+    .container-fluid {
+      padding: 0 15px;
+    }
+  }
+}
