@@ -51,6 +51,12 @@ class SiderMenu extends React.Component {
                 <span>Manager Dashboard</span>
               </Link>
             </Menu.Item>
+            <Menu.Item key="6">
+              <Link to='/certifications'>
+                <Icon type='check-circle'/>
+                <span>Certifications</span>
+              </Link>
+            </Menu.Item>
           </Menu>
         </div>
       </AppSidebar>

@@ -108,7 +108,20 @@ body {
     overflow-x: auto;
   }
 }
-
+.remove-btn-border-radius{
+  border-radius: 0 ;
+}
+.btn-dribbbl {
+  color: #76838f;
+  background-color: #e4eaec;
+  border-color: #e4eaec;
+}
+.left-filter {
+  margin-top: -25px;
+  padding-top: 10px;
+  margin-left: -15px;
+  background: #eee;
+}
 
 @media (max-width: 992px) {
   .main {
