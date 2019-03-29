@@ -20,17 +20,17 @@ import { ApiService } from '../../Services/ApiService';
 
 class MyAccess extends Component {
   _dataContext = new ApiService();
-  
+
   state = {
     applications: {},
     entitlements: {},
     roles: {},
   }
-  
+
   componentDidMount() {
     this.getData();
   }
-  
+
   getData = async () => {
     this.setState({
       isLoading: true,
@@ -53,7 +53,7 @@ class MyAccess extends Component {
       isLoading: false,
     });
   }
-  
+
   renderApplications = () => {
     const { applications = {}} = this.state;
     return (
@@ -119,7 +119,7 @@ class MyAccess extends Component {
       </Card>
     );
   }
-  
+
   renderEntitlements = () => {
     const { entitlements = {}} = this.state
     return (
@@ -176,7 +176,7 @@ class MyAccess extends Component {
       </Card>
     );
   }
-  
+
   renderRoles = () => {
     const { roles= [] } = this.state;
     return (

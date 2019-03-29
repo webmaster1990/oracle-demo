@@ -1,0 +1,17 @@
+@import '../../scss/variables';
+.provision-drawer {
+  .provision-card {
+    margin-top: -23px;
+    margin-left: -9px;
+    margin-right: -7px;
+    border: none;
+  }
+  .card-header{
+    background-color: $light-blue-badge-color;
+    color: #fff;
+  }
+  .btn-block{
+    width: 80px;
+    border-radius: 0!important;
+  }
+}

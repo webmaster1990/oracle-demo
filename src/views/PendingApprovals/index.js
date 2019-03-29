@@ -92,9 +92,9 @@ class PendingApprovals extends Component {
                   </Col>
                 </Row>
                 <hr className="hr"/>
-                <Row>
+                <Row className="flex-align-item-center">
                   <Col md="2" xs="12" sm="12" className="pr-0 ">
-                    <Checkbox className="mt-5"/>
+                    <Checkbox/>
                     <img src={'../../assets/img/avatars/6.jpg'} className="img-avatar ml-5" alt="admin@bootstrapmaster.com" />
                   </Col>
                   <Col md="3" xs="12" sm="12" className="pl-0 pr-0">
@@ -113,14 +113,12 @@ class PendingApprovals extends Component {
                     <p className="mb-0"><b>Requestor: </b>Wolfe, Noel</p>
                   </Col>
                   <Col md="2" xs="12" sm="12" className=" pl-0">
-                    <div className="mt-5">
                     <Badge className="badge bg-blue-orange small mr-1">Awaiting Approval</Badge>
-                    </div>
                   </Col>
                   <Col md="2" xs="12" sm="12" className="pl-0 pr-0">
-                      <Button block color="success" className="w-25 mt-5 pr-0 pl-0 btn-sm  custom-button">Approve</Button>
-                      <Button block color="danger" className="w-25 mt-5 pr-0 pl-0 btn-sm custom-button  mt-0">Decline</Button>
-                      <Button block color="secondary" className="w-25 mt-5 pr-0 pl-0 btn-sm  mt-0 custom-button-small" >
+                      <Button block color="success" className="w-25 pr-0 pl-0 btn-sm  custom-button">Approve</Button>
+                      <Button block color="danger" className="w-25 pr-0 pl-0 btn-sm custom-button  mt-0">Decline</Button>
+                      <Button block color="secondary" className="w-25 pr-0 pl-0 btn-sm  mt-0 custom-button-small" >
                         <i className="fa fa-caret-down"></i>
                       </Button>
                   </Col>

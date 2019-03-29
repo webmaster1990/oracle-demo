@@ -2,17 +2,19 @@ import React, { Component } from 'react';
 import {
   Row, Badge,
 } from 'reactstrap';
-import { Progress } from 'antd';
 import { PropagateLoader } from 'react-spinners';
+import { Progress, Drawer } from 'antd';
 import ProgressCard from './ProgressCard';
 import ContentCard from './ContentCard';
 import moment from 'moment';
 import { ApiService } from '../../Services/ApiService';
 import './dashboard.scss';
+import './drawer.scss'
+import ProvisionEntitlement from "./ProvisionEntitlement";
 
 class Dashboard extends Component {
   _dataContext = new ApiService();
-  
+
   state = {
     pendingApprovals: {},
     certifications: {},
@@ -22,7 +24,7 @@ class Dashboard extends Component {
   componentDidMount() {
     this.getData();
   }
-  
+
   getData = async () => {
     this.setState({
       isLoading: true,
@@ -43,7 +45,7 @@ class Dashboard extends Component {
       ...newState,
       isLoading: false,
     });
-    
+
   }
 
   render() {
@@ -84,7 +86,7 @@ class Dashboard extends Component {
                 )
               })
             }
-            
+
           </ContentCard>
           <ContentCard title="Pending Certifications" className="header-green" count={certifications.count || 0} >
             {
@@ -118,6 +120,14 @@ class Dashboard extends Component {
             {/*</div>*/}
           </ContentCard>
         </Row>
+        <Drawer className="drawer"
+          title="Basic Drawer"
+          placement="right"
+          closable={false}
+          visible={true}
+        >
+          <ProvisionEntitlement/>
+        </Drawer>
       </div>
     );
   }
