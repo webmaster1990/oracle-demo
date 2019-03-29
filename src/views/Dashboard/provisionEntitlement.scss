@@ -6,6 +6,14 @@
     margin-right: -7px;
     border: none;
   }
+  .close {
+    color: #fff;
+    text-shadow: none;
+    line-height: 20px;
+    font-size: 18px;
+    opacity: 1;
+    cursor: pointer;
+  }
   .card-header{
     background-color: $light-blue-badge-color;
     color: #fff;

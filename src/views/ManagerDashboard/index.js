@@ -2,8 +2,6 @@ import React,{Component} from 'react'
 import {
   Row,
   Col,
-  CardBody,
-  Card,
   Nav,
   NavItem,
   NavLink,
@@ -11,17 +9,42 @@ import {
   TabPane,
   Input,
   FormGroup,
-  Button, Label
+  Button
 } from 'reactstrap'
+import Loader from '../Common/Loader';
+import { Table  } from 'antd';
+import { ApiService } from '../../Services/ApiService';
 import './managerdashboard.scss'
-import { Table,Icon  } from 'antd';
 
-class ManagerDashboard extends Component{
-  constructor(props) {
-    super(props);
-    this.state = {
-      activeTab: new Array(4).fill('1'),
-    };
+class ManagerDashboard extends Component {
+  _dataContext = new ApiService();
+  
+  state = {
+    activeTab: 'all',
+    isLoading: false,
+    all: {},
+  }
+  
+  componentDidMount() {
+    this.getData();
+  }
+  
+  getData = async () => {
+    this.setState({
+      isLoading: true,
+    })
+    const promises = [this._dataContext.getAllManageDashboard()];
+    const [allRes] = await Promise.all(promises);
+    const newState = {};
+    if (!allRes.error) {
+      newState.all = allRes;
+    }
+    console.log(newState);
+    this.setState({
+      ...newState,
+      isLoading: false,
+    });
+    
   }
 
   All = () => {
@@ -116,33 +139,32 @@ class ManagerDashboard extends Component{
     )
   }
 
-  toggle = (tabPane, tab) => {
-    const newArray = this.state.activeTab.slice()
-    newArray[tabPane] = tab
+  toggle = (tab) => {
     this.setState({
-      activeTab: newArray,
+      activeTab: tab,
     });
   }
 
   tabPane = () => {
     return (
-      <>
-        <TabPane tabId="1">
+      <TabContent className="mb-5" activeTab={this.state.activeTab}>
+        <TabPane tabId="expiring-contractor">
+        </TabPane>
+        <TabPane tabId="all">
           {this.All()}
         </TabPane>
-        <TabPane tabId="2">
-          {this.All()}
+        <TabPane tabId="associates">
         </TabPane>
-        <TabPane tabId="3">
-          {this.All()}
+        <TabPane tabId="contractor">
         </TabPane>
-        <TabPane tabId="4">
-          {this.All()}
-        </TabPane>
-      </>
+      </TabContent>
     );
   }
   render() {
+    const { activeTab, isLoading } = this.state;
+    if (isLoading) {
+      return <Loader />;
+    }
     return(
       <div className="animated fadeIn manager-dashboard">
       <Row>
@@ -150,9 +172,9 @@ class ManagerDashboard extends Component{
           <Nav tabs>
             <NavItem>
               <NavLink
-                active={this.state.activeTab[0] === '1'}
+                active={activeTab === 'expiring-contractor'}
                 onClick={() => {
-                  this.toggle(0, '1');
+                  this.toggle('expiring-contractor');
                 }}
               >
                 Expiring Contractor
@@ -160,9 +182,9 @@ class ManagerDashboard extends Component{
             </NavItem>
             <NavItem>
               <NavLink
-                active={this.state.activeTab[0] === '2'}
+                active={activeTab === 'all'}
                 onClick={() => {
-                  this.toggle(0, '2');
+                  this.toggle('all');
                 }}
               >
                 All
@@ -170,9 +192,9 @@ class ManagerDashboard extends Component{
             </NavItem>
             <NavItem>
               <NavLink
-                active={this.state.activeTab[0] === '3'}
+                active={activeTab === 'associates'}
                 onClick={() => {
-                  this.toggle(0, '3');
+                  this.toggle('associates');
                 }}
               >
                 Associates
@@ -180,18 +202,16 @@ class ManagerDashboard extends Component{
             </NavItem>
             <NavItem>
               <NavLink
-                active={this.state.activeTab[0] === '4'}
+                active={activeTab === 'contractor'}
                 onClick={() => {
-                  this.toggle(0, '4');
+                  this.toggle('contractor');
                 }}
               >
                 Contractors
               </NavLink>
             </NavItem>
           </Nav>
-          <TabContent className="mb-5" activeTab={this.state.activeTab[0]}>
-            {this.tabPane()}
-          </TabContent>
+          {this.tabPane()}
         </Col>
       </Row>
       </div>

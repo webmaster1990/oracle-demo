@@ -50,7 +50,7 @@ class DefaultAside extends Component {
                      onClick={() => {
                        this.toggle('2');
                      }}>
-              <i className="icon-speech"></i>
+              <i className="icon-speech" />
             </NavLink>
           </NavItem>
           <NavItem>
@@ -58,7 +58,7 @@ class DefaultAside extends Component {
                      onClick={() => {
                        this.toggle('3');
                      }}>
-              <i className="icon-settings"></i>
+              <i className="icon-settings" />
             </NavLink>
           </NavItem>
         </Nav>
@@ -68,7 +68,7 @@ class DefaultAside extends Component {
               <ListGroupItem className="list-group-item-accent-secondary bg-light text-center font-weight-bold text-muted text-uppercase small">Today</ListGroupItem>
               <ListGroupItem action tag="a" href="#" className="list-group-item-accent-warning list-group-item-divider">
                 <div className="avatar float-right">
-                  <img className="img-avatar" src="assets/img/avatars/7.jpg" alt="admin@bootstrapmaster.com"></img>
+                  <img className="img-avatar" src={require('../../assets/avatars/7.jpg')} alt="admin@bootstrapmaster.com" />
                 </div>
                 <div>Meeting with <strong>Lucas</strong> </div>
                 <small className="text-muted mr-3">
@@ -80,14 +80,14 @@ class DefaultAside extends Component {
               </ListGroupItem>
               <ListGroupItem action tag="a" href="#" className="list-group-item-accent-info list-group-item-divider">
                 <div className="avatar float-right">
-                  <img className="img-avatar" src="assets/img/avatars/4.jpg" alt="admin@bootstrapmaster.com"></img>
+                  <img className="img-avatar" src={require('../../assets/avatars/7.jpg')} alt="admin@bootstrapmaster.com" />
                 </div>
                 <div>Skype with <strong>Megan</strong></div>
                 <small className="text-muted mr-3">
-                  <i className="icon-calendar"></i>&nbsp; 4 - 5pm
+                  <i className="icon-calendar" />&nbsp; 4 - 5pm
                 </small>
                 <small className="text-muted">
-                  <i className="icon-social-skype"></i> On-line
+                  <i className="icon-social-skype" /> On-line
                 </small>
               </ListGroupItem>
               <ListGroupItem className="list-group-item-accent-secondary bg-light text-center font-weight-bold text-muted text-uppercase small">Tomorrow</ListGroupItem>

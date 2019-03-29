@@ -87,8 +87,8 @@ export class ApiService {
     return this.getData('selfservice/api/v1/accounts?userId=1');
   }
   
-  async getPendingApprovalsDetailed() {
-    return this.getData('selfservice/api/v1/accounts?userId=1');
+  async getAllManageDashboard() {
+    return this.getData('selfservice/api/v1/users/1/directs');
   }
 
 }

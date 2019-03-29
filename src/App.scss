@@ -117,10 +117,14 @@ body {
   border-color: #e4eaec;
 }
 .left-filter {
-  margin-top: -25px;
+  margin-top: -23px;
   padding-top: 10px;
   margin-left: -15px;
-  background: #eee;
+  background: #fff;
+}
+
+.fa-15x {
+  font-size: 1.5em;
 }
 
 @media (max-width: 992px) {

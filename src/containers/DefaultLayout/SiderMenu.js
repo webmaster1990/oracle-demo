@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux'
 import { Menu, Icon } from 'antd';
 import {
@@ -8,45 +8,45 @@ import {
 import './customSidebar.scss';
 
 class SiderMenu extends React.Component {
-
+  
   render() {
-    const { sideBarCollapsed } = this.props;
+    const { sideBarCollapsed, location: { pathname } } = this.props;
     return (
       <AppSidebar fixed display="lg">
         <div className="custom-sidebar">
           <Menu
-            defaultSelectedKeys={['1']}
+            defaultSelectedKeys={[pathname.substr(1)]}
             defaultOpenKeys={['sub1']}
             mode="inline"
             theme="dark"
             inlineCollapsed={sideBarCollapsed}
           >
-            <Menu.Item key="1">
+            <Menu.Item key="dashboard">
               <Link to='/dashboard'>
                 <Icon type='home'/>
                 <span>Dashboard</span>
               </Link>
             </Menu.Item>
-            <Menu.Item key="2">
+            <Menu.Item key="myaccess">
               <Link to='/myaccess'>
                 <Icon type='info-circle'/>
                 <span>My Access</span>
               </Link>
             </Menu.Item>
-            <Menu.Item key="3">
+            <Menu.Item key="profile">
               <Link to='/profile'>
                 <Icon type='profile'/>
                 <span>Profile</span>
               </Link>
             </Menu.Item>
-            <Menu.Item key="4">
-              <Link to='/pendingApprovals'>
+            <Menu.Item key="pending-approvals">
+              <Link to='/pending-approvals'>
                 <Icon type='check-circle'/>
                 <span>Pending Approvals</span>
               </Link>
             </Menu.Item>
-            <Menu.Item key="5">
-              <Link to='/managerDashboard'>
+            <Menu.Item key="manager-dashboard">
+              <Link to='/manager-dashboard'>
                 <Icon type='check-circle'/>
                 <span>Manager Dashboard</span>
               </Link>
@@ -68,4 +68,4 @@ const mapStateToProps = (state) => ({
   sideBarCollapsed: state.settings.sideBarCollapsed,
 });
 
-export default connect(mapStateToProps)(SiderMenu)
+export default connect(mapStateToProps)(withRouter(SiderMenu))

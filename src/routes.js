@@ -14,8 +14,8 @@ const routes = [
   { path: '/dashboard', name: 'Dashboard', component: Dashboard },
   { path: '/profile', name: 'Profile', component: Profile },
   { path: '/myaccess', name: 'My Access', component: MyAccess },
-  { path: '/pendingApprovals', name: 'Pending Approvals', component: PendingApprovals },
-  { path: '/managerDashboard', name: 'Manager Dashboard', component: ManagerDashboard },
+  { path: '/pending-approvals', name: 'Pending Approvals', component: PendingApprovals },
+  { path: '/manager-dashboard', name: 'Manager Dashboard', component: ManagerDashboard },
   { path: '/certifications', name: 'Certifications', component: Certifications },
 ];
 

@@ -3,9 +3,10 @@ import {
   Badge, Button,
   Card,
   CardBody, CardHeader,
-  Col, FormGroup, Input, Label,
+  Col, FormGroup, Input,
   Row,
 } from 'reactstrap';
+import { Icon } from 'antd';
 import './provisionEntitlement.scss'
 import {Link} from "react-router-dom";
 class ProvisionEntitlement extends Component {
@@ -16,7 +17,7 @@ class ProvisionEntitlement extends Component {
           <Col md="12" xs="12" sm="12" className="p-0">
             <Card className="provision-card">
               <CardHeader>
-                <span>Provision Entitlement - BR_Fileshare</span>
+                <span>Provision Entitlement - BR_Fileshare</span><Icon onClick={this.props.onCloseDrawer} type="close" color="#fff" className="close" />
               </CardHeader>
               <CardBody className="content-card-body">
                 <Row>
