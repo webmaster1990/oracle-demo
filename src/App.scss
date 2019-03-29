@@ -89,7 +89,20 @@ body {
 .small-width-btn{
   width: 35px !important;
 }
-
+.inline-block{
+  display: inline-block !important;
+}
+.custom-button{
+  border-radius: 0 !important;
+  width: 60px !important;
+  display: inline-block !important;
+  margin-right: 5px !important;
+}
+.custom-button-small{
+  border-radius: 0 !important;
+  width: 25px !important;
+  display: inline-block !important;
+}
 .table-with-scroll {
   .ant-table-body {
     overflow-x: auto;
