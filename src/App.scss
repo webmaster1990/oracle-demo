@@ -51,7 +51,7 @@ body {
   align-items: center
 }
 
-.card-icon{
+.card-icon {
   width: 35px;
   height: 35px;
   color: #fff;
@@ -60,6 +60,22 @@ body {
   border-radius: 0;
   color: #fff !important;
   cursor: pointer;
+
+  &.bg-white {
+    background-color: $btn-bac-white;
+  }
+  .blue {
+    border-color: $blue-badge-color;
+    color: #20a8d8 !important;
+  }
+  .green {
+    border-color: #4dbd74;
+    color: #4dbd74 !important;
+  }
+  .red {
+    border-color: #f86c6b;
+    color: #f86c6b !important;
+  }
 }
 
 .form-control {
@@ -73,6 +89,14 @@ body {
 .small-width-btn{
   width: 35px !important;
 }
+
+.table-with-scroll {
+  .ant-table-body {
+    overflow-x: auto;
+  }
+}
+
+
 @media (max-width: 992px) {
   .main {
     .container-fluid {

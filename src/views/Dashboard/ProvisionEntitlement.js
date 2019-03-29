@@ -22,7 +22,7 @@ class ProvisionEntitlement extends Component {
                 <Row>
                   <Col md="6" sm="12" xs="12">
                     <p><b>Requestor:</b></p>
-                    <p ><img src={'../../assets/img/avatars/6.jpg'} className="img-avatar" alt="admin@bootstrapmaster.com" /> Wolfe, Noel</p>
+                    <p ><img src={require('../../assets/avatars/6.jpg')} className="img-avatar" alt="admin@bootstrapmaster.com" /> Wolfe, Noel</p>
                     <p className="mb-0"><b>Beneficiaries: </b>Wolfe, Noel</p>
                     <p className="mb-0"><b>Request ID: </b>8034</p>
                     <Badge className="badge orange small mr-1 mb-1">Awaiting Approval</Badge>

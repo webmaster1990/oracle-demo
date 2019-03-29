@@ -95,7 +95,7 @@ class PendingApprovals extends Component {
                 <Row className="flex-align-item-center">
                   <Col md="2" xs="12" sm="12" className="pr-0 ">
                     <Checkbox/>
-                    <img src={'../../assets/img/avatars/6.jpg'} className="img-avatar ml-5" alt="admin@bootstrapmaster.com" />
+                    <img src={require('../../assets/avatars/6.jpg')} className="img-avatar ml-5" alt="admin@bootstrapmaster.com" />
                   </Col>
                   <Col md="3" xs="12" sm="12" className="pl-0 pr-0">
                     <p className="mb-0"><b>Requester manager approval for Request ID 8034 </b><Icon type="info-circle" twoToneColor="#64a6ea" theme="twoTone" /></p>

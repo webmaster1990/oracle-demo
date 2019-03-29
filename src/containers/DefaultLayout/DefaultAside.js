@@ -97,19 +97,19 @@ class DefaultAside extends Component {
                 <small className="text-muted"><i className="icon-home"></i>&nbsp; creativeLabs HQ</small>
                 <div className="avatars-stack mt-2">
                   <div className="avatar avatar-xs">
-                    <img src={'assets/img/avatars/2.jpg'} className="img-avatar" alt="admin@bootstrapmaster.com" />
+                    <img src={require('../../assets/avatars/2.jpg')} className="img-avatar" alt="admin@bootstrapmaster.com" />
                   </div>
                   <div className="avatar avatar-xs">
-                    <img src={'assets/img/avatars/3.jpg'} className="img-avatar" alt="admin@bootstrapmaster.com" />
+                    <img src={require('../../assets/avatars/3.jpg')} className="img-avatar" alt="admin@bootstrapmaster.com" />
                   </div>
                   <div className="avatar avatar-xs">
-                    <img src={'assets/img/avatars/4.jpg'} className="img-avatar" alt="admin@bootstrapmaster.com" />
+                    <img src={require('../../assets/avatars/4.jpg')} className="img-avatar" alt="admin@bootstrapmaster.com" />
                   </div>
                   <div className="avatar avatar-xs">
-                    <img src={'assets/img/avatars/5.jpg'} className="img-avatar" alt="admin@bootstrapmaster.com" />
+                    <img src={require('../../assets/avatars/5.jpg')} className="img-avatar" alt="admin@bootstrapmaster.com" />
                   </div>
                   <div className="avatar avatar-xs">
-                    <img src={'assets/img/avatars/6.jpg'} className="img-avatar" alt="admin@bootstrapmaster.com" />
+                    <img src={require('../../assets/avatars/6.jpg')} className="img-avatar" alt="admin@bootstrapmaster.com" />
                   </div>
                 </div>
               </ListGroupItem>
@@ -124,25 +124,25 @@ class DefaultAside extends Component {
                 <small className="text-muted"><i className="icon-home"></i>&nbsp; creativeLabs HQ</small>
                 <div className="avatars-stack mt-2">
                   <div className="avatar avatar-xs">
-                    <img src={'assets/img/avatars/2.jpg'} className="img-avatar" alt="admin@bootstrapmaster.com" />
+                    <img src={require('../../assets/avatars/2.jpg')} className="img-avatar" alt="admin@bootstrapmaster.com" />
                   </div>
                   <div className="avatar avatar-xs">
-                    <img src={'assets/img/avatars/3.jpg'} className="img-avatar" alt="admin@bootstrapmaster.com" />
+                    <img src={require('../../assets/avatars/3.jpg')} className="img-avatar" alt="admin@bootstrapmaster.com" />
                   </div>
                   <div className="avatar avatar-xs">
-                    <img src={'assets/img/avatars/4.jpg'} className="img-avatar" alt="admin@bootstrapmaster.com" />
+                    <img src={require('../../assets/avatars/4.jpg')} className="img-avatar" alt="admin@bootstrapmaster.com" />
                   </div>
                   <div className="avatar avatar-xs">
-                    <img src={'assets/img/avatars/5.jpg'} className="img-avatar" alt="admin@bootstrapmaster.com" />
+                    <img src={require('../../assets/avatars/5.jpg')} className="img-avatar" alt="admin@bootstrapmaster.com" />
                   </div>
                   <div className="avatar avatar-xs">
-                    <img src={'assets/img/avatars/6.jpg'} className="img-avatar" alt="admin@bootstrapmaster.com" />
+                    <img src={require('../../assets/avatars/6.jpg')} className="img-avatar" alt="admin@bootstrapmaster.com" />
                   </div>
                   <div className="avatar avatar-xs">
-                    <img src={'assets/img/avatars/7.jpg'} className="img-avatar" alt="admin@bootstrapmaster.com" />
+                    <img src={require('../../assets/avatars/7.jpg')} className="img-avatar" alt="admin@bootstrapmaster.com" />
                   </div>
                   <div className="avatar avatar-xs">
-                    <img src={'assets/img/avatars/8.jpg'} className="img-avatar" alt="admin@bootstrapmaster.com" />
+                    <img src={require('../../assets/avatars/8.jpg')} className="img-avatar" alt="admin@bootstrapmaster.com" />
                   </div>
                 </div>
               </ListGroupItem>

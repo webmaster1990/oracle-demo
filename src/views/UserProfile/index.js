@@ -60,7 +60,7 @@ class Profile extends Component{
             <Card className="card-border">
               <CardBody>
                 <Col className="text-center">
-                <img src={'../../assets/img/avatars/default-avatar.png'} className="img-avatar" alt="admin@bootstrapmaster.com" />
+                <img src={require('../../assets/avatars/default-avatar.png')} className="img-avatar" alt="admin@bootstrapmaster.com" />
                 </Col>
                 <br/>
                 <Col className="text-center">

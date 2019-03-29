@@ -45,6 +45,12 @@ class SiderMenu extends React.Component {
                 <span>Pending Approvals</span>
               </Link>
             </Menu.Item>
+            <Menu.Item key="5">
+              <Link to='/managerDashboard'>
+                <Icon type='check-circle'/>
+                <span>Manager Dashboard</span>
+              </Link>
+            </Menu.Item>
           </Menu>
         </div>
       </AppSidebar>
