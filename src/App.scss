@@ -15,6 +15,17 @@ body {
   font-family: 'Roboto', sans-serif !important;
 }
 
+.main {
+  .ant-card-wider-padding {
+    .ant-card-body {
+      padding: 15px;
+    }
+  }
+  .ant-card-body {
+    padding: 15px;
+  }
+}
+
 .badge {
   color: #fff;
   font-size: 13px;
@@ -47,6 +58,7 @@ body {
       height: 22px;
   }
 }
+
 .flex-align-item-center{
   align-items: center
 }

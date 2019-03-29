@@ -5,7 +5,9 @@ import { Menu, Icon } from 'antd';
 import {
   AppSidebar,
 } from '@coreui/react';
-import './customSidebar.scss';
+import './custom-sidebar.scss';
+
+const SubMenu = Menu.SubMenu;
 
 class SiderMenu extends React.Component {
   

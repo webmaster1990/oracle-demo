@@ -8,6 +8,7 @@ import {
   AppHeader,
 } from '@coreui/react';
 import { PropagateLoader } from 'react-spinners';
+import {Helmet} from "react-helmet";
 import Sider from './SiderMenu';
 import routes from '../../routes';
 
@@ -47,7 +48,12 @@ class DefaultLayout extends Component {
                         exact={route.exact}
                         name={route.name}
                         render={props => (
+                          <>
+                          <Helmet>
+                            <title>{route.title || route.name}</title>
+                          </Helmet>
                           <route.component {...props} />
+                          </>
                         )} />
                     ) : (null);
                   })}

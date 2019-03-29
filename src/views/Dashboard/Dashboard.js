@@ -2,13 +2,13 @@ import React, { Component } from 'react';
 import {
   Row, Badge, Button, Col,
 } from 'reactstrap';
-import { PropagateLoader } from 'react-spinners';
 import { Progress, Drawer } from 'antd';
 import ProgressCard from './ProgressCard';
-import ContentCard from './ContentCard';
+import ContentCard from '../Common/ContentCard';
 import moment from 'moment';
 import { ApiService } from '../../Services/ApiService';
 import ProvisionEntitlement from "./ProvisionEntitlement";
+import CardItem from '../Common/CardItem';
 import './dashboard.scss';
 import './drawer.scss'
 
@@ -20,31 +20,59 @@ class Dashboard extends Component {
     certifications: {},
     pendingRequests: {},
     isDrawerOpen: false,
+    isApprovalsLoading: true,
+    isCertificationsLoading: true,
+    isRequestLoading: true,
   }
 
   componentDidMount() {
-    this.getData();
+    this.getApprovals();
+    this.getRequests();
+    this.getCertifications();
   }
 
-  getData = async () => {
+  getApprovals = async () => {
     this.setState({
-      isLoading: true,
+      isApprovalsLoading: true,
     })
-    const promises = [this._dataContext.getPendingApprovals(), this._dataContext.getPendingCertifications(), this._dataContext.getPendingRequests()];
-    const [pendingApprovalsRes, certRes, pendingRes] = await Promise.all(promises);
+    const pendingApprovalsRes = await this._dataContext.getPendingApprovals();
     const newState = {};
     if (!pendingApprovalsRes.error) {
       newState.pendingApprovals = pendingApprovalsRes;
     }
-    if (!certRes.error) {
-      newState.certifications = certRes;
-    }
+    this.setState({
+      ...newState,
+      isApprovalsLoading: false,
+    });
+  }
+  
+  getRequests = async () => {
+    this.setState({
+      isRequestLoading: true,
+    })
+    const pendingRes = await this._dataContext.getPendingRequests();
+    const newState = {};
     if (!pendingRes.error) {
       newState.pendingRequests = pendingRes;
     }
     this.setState({
       ...newState,
-      isLoading: false,
+      isRequestLoading: false,
+    });
+  }
+  
+  getCertifications = async () => {
+    this.setState({
+      isCertificationsLoading: true,
+    })
+    const certRes = await this._dataContext.getPendingCertifications();
+    const newState = {};
+    if (!certRes.error) {
+      newState.certifications = certRes;
+    }
+    this.setState({
+      ...newState,
+      isCertificationsLoading: false,
     });
   }
   
@@ -61,11 +89,7 @@ class Dashboard extends Component {
   }
 
   render() {
-    const { isLoading, pendingApprovals = {}, certifications = {}, pendingRequests = {}, isDrawerOpen } = this.state;
-    const loader = (<div className="loading">{' '}<PropagateLoader color={'#165d93'} /></div>);
-    if (isLoading) {
-      return loader;
-    }
+    const { pendingApprovals = {}, certifications = {}, pendingRequests = {}, isDrawerOpen, isCertificationsLoading, isRequestLoading, isApprovalsLoading } = this.state;
     return (
       <div className="animated fadeIn">
         <Row>
@@ -74,45 +98,51 @@ class Dashboard extends Component {
           <ProgressCard name="Pending Certifications" value={certifications.count || 0} />
         </Row>
         <Row>
-          <ContentCard title="Pending Approvals" className="header-gray" count={pendingApprovals.count || 0}>
-            {
-              pendingApprovals.count === 0 && <p className="text-center pt-2">You have no pending approvals.</p>
-            }
-            {
-              (pendingApprovals.requests || []).map((request, i) => {
-                return (
-                  <Row className="p-2" key={`pending-request-item-${i}`}>
-                    <Col md="2" sm="12" xs="12" className="pl-2 pr-0 pt-2 pb-3" style={{backgroundColor:"#e5f2ff"}}>
-                      <img src={require('../../assets/avatars/6.jpg')} className="img-avatar"/>
-                    </Col>
-                    <Col md="10" sm="12" xs="12" className="pl-0 pr-2 pt-2 pb-3" style={{backgroundColor:"#e5f2ff"}}>
-                      <p className="mb-0"><b>BR_Fileshare</b></p>
-                      {request.status && <Badge className={"badge mt-2 mb-2 small orange"}>{request.status}</Badge>}
-                      <p className="mb-0"><b>Baneficiaries:</b></p>
-                      <p className="mb-3">System Administrator</p>
-                      <p className="mb-1"><b>Request ID: </b>{request.id}</p>
-                      <p className="mb-1"><b>Request Type: </b>Provision Entitlement</p>
-                      <p className="mb-1"><b>Requested Date: </b>{moment(request.created).format('MMMM Do YYYY h:mm:ss a')}</p>
-                      <Button block color="success" className="w-25 pr-0 pl-0 btn-sm  custom-button" onClick={this.onApprove}>Approve</Button>
-                      <Button block color="danger" className="w-25 pr-0 pl-0 btn-sm custom-button  mt-0">Decline</Button>
-                      <Button block color="secondary" className="w-25 pr-0 pl-0 btn-sm  mt-0 custom-button-small">
-                        <i className="fa fa-caret-down"/>
-                      </Button>
-                    </Col>
-                  </Row>
-                )
-              })
-            }
-
+          <Col xs="12" sm="12" lg="4">
+          <ContentCard title={<div>Pending Approvals<span className="pull-right count">{pendingApprovals.count || 0}</span></div>}
+                       className="header-gray" count={pendingApprovals.count || 0} loading={isApprovalsLoading}>
+              {
+                pendingApprovals.count === 0 && <p className="text-center pt-2">You have no pending approvals.</p>
+              }
+              {
+                (pendingApprovals.requests || []).map((request, i) => {
+                  return (
+                    <CardItem className="p-2" keyValue={`pending-request-item-${i}`}>
+                      <Row className="m-0">
+                        <Col md="2" sm="12" xs="12" className="pl-2 pr-0 pt-2 pb-3">
+                          <img src={require('../../assets/avatars/6.jpg')} className="img-avatar"/>
+                        </Col>
+                        <Col md="10" sm="12" xs="12" className="pl-0 pr-2 pt-2 pb-3">
+                          <p className="mb-0"><b>BR_Fileshare</b></p>
+                          {request.status && <Badge className={"badge mt-2 mb-2 small orange"}>{request.status}</Badge>}
+                          <p className="mb-0"><b>Baneficiaries:</b></p>
+                          <p className="mb-3">System Administrator</p>
+                          <p className="mb-1"><b>Request ID: </b>{request.id}</p>
+                          <p className="mb-1"><b>Request Type: </b>Provision Entitlement</p>
+                          <p className="mb-1"><b>Requested Date: </b>{moment(request.created).format('MMMM Do YYYY h:mm:ss a')}</p>
+                          <Button block color="success" className="w-25 pr-0 pl-0 btn-sm  custom-button" onClick={this.onApprove}>Approve</Button>
+                          <Button block color="danger" className="w-25 pr-0 pl-0 btn-sm custom-button  mt-0">Decline</Button>
+                          <Button block color="secondary" className="w-25 pr-0 pl-0 btn-sm  mt-0 custom-button-small">
+                            <i className="fa fa-caret-down"/>
+                          </Button>
+                        </Col>
+                      </Row>
+                    </CardItem>
+                  )
+                })
+              }
           </ContentCard>
-          <ContentCard title="Pending Requests" className="header-blue" count={pendingRequests.count || 0} >
+          </Col>
+          <Col xs="12" sm="12" lg="4">
+          <ContentCard title={<div>Pending Requests<span className="pull-right count">{pendingRequests.count || 0}</span></div>}
+                       className="header-blue" loading={isRequestLoading}>
             {
               pendingRequests.count === 0 && <p className="text-center pt-2">You have no pending request.</p>
             }
             {
               (pendingRequests.requests || []).map((request, i) => {
                 return (
-                  <div className="request-item" key={`request-item-${i}`}>
+                   <CardItem keyValue={`request-item-${i}`}>
                     <p className="mb-0"><b>CN=Access Control Assistance Operators,CN=Builtin,DC=nimdex,DC=com</b></p>
                     <Badge className={`badge mt-2 mb-2 small ${request.reqStatus === 'Request Completed' ?  'green' : 'red'}`}>{request.reqStatus}</Badge>
                     <p className="mb-1"><b>Baneficiaries:</b></p>
@@ -120,19 +150,21 @@ class Dashboard extends Component {
                     <p className="mb-1"><b>Request ID: </b>{request.id}</p>
                     <p className="mb-1"><b>Request Type: </b>{request.reqType}</p>
                     <p className="mb-1"><b>Requested Date: </b>{moment(request.reqCreatedOn).format('MMMM Do YYYY h:mm:ss a')}</p>
-                  </div>
+                  </CardItem>
                 )
               })
             }
           </ContentCard>
-          <ContentCard title="Pending Certifications" className="header-green" count={certifications.count || 0} >
-            {
-              certifications.count === 0 && <p className="text-center pt-2">You have no pending certification.</p>
-            }
+          </Col>
+          <Col xs="12" sm="12" lg="4">
+  
+          <ContentCard title={<div>Pending Certifications<span className="pull-right count">{certifications.count || 0}</span></div>}
+            className="header-green" loading={isCertificationsLoading}>
+            { certifications.count === 0 && <p className="text-center pt-2">You have no pending certification.</p> }
             {
               (certifications.certifications || []).map((certificate, i) => {
                 return (
-                  <div className="request-item" key={`cert-item-${i}`}>
+                  <CardItem keyValue={`cert-item-${i}`}>
                     <p><b>{certificate.name}</b></p>
                     <Badge className="badge green small">New</Badge>
                     <p className="mt-2"><b>Certificate ID: </b>{certificate.id}</p>
@@ -140,22 +172,12 @@ class Dashboard extends Component {
                     <p className="mb-1"><b>Date Created : </b>{moment(certificate.createdDate).format('MMMM Do YYYY h:mm:ss a')}</p>
                     <b className="mb-1">Progress</b>
                     <Progress percent={30} className="mb-2"/>
-                  </div>
+                  </CardItem>
                 )
               })
             }
-            {/*<div className="certifications-content">*/}
-              {/*<div className="mt-2 mb-2 pr-2 pl-2">*/}
-              {/*<p className="pt-3"><b>User_Certificate [System Administrator]</b></p>*/}
-              {/*<Badge className="badge green small">Complete</Badge>*/}
-              {/*<p className="mb-1"><b>Certificate ID: </b>61</p>*/}
-              {/*<p className="mb-1"><b>Type: </b>User</p>*/}
-              {/*<p className="mb-1"><b>Date Created : </b>March 20,2019 11:23 PM</p>*/}
-              {/*<b className="mb-1">Progress</b>*/}
-              {/*<Progress percent={30} className="mb-2"/>*/}
-            {/*</div>*/}
-            {/*</div>*/}
           </ContentCard>
+          </Col>
         </Row>
         <Drawer className="drawer"
           title="Basic Drawer"
