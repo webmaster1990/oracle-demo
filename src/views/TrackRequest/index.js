@@ -103,20 +103,20 @@ class TrackRequest extends Component {
                 </Row>
                 <hr className="hr"/>
                 <Row className="flex-align-item-center">
-                  <Col md="1" xs="12" sm="12" className="pr-0 ">
+                  <Col md="1" xs="12" sm="12"  >
                     <Icon type="clock-circle" theme="filled" style={{ fontSize: '28px', color: '#4dbd74' }} />
                   </Col>
-                  <Col md="3" xs="12" sm="12" className="pl-0 pr-0">
+                  <Col md="3" xs="12" sm="12">
                     <p><b>GWCIT</b></p>
                     <p className="mb-0"><b>Benficiaries:</b></p>
                     <p>Pankaj Tripathi</p>
                   </Col>
-                  <Col md="4" xs="12" sm="12" className="pl-0 pr-0">
+                  <Col md="4" xs="12" sm="12">
                     <p className="mb-0"><b>Request ID:</b>8010</p>
                     <p className="mb-0"><b>Request Type:</b>Provisional Entitlement</p>
                     <p className="mb-0"><b>Requested Date:</b>March 20,2019 10:20 PM</p>
                   </Col>
-                  <Col md="4" xs="12" sm="12" className=" pl-0">
+                  <Col md="4" xs="12" sm="12">
                     <Badge className="badge bg-red small">Request Approved Fulfillment Failed</Badge>
                   </Col>
                 </Row>

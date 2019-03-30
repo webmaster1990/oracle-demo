@@ -65,6 +65,18 @@ class SiderMenu extends React.Component {
                 <span>Track Request</span>
               </Link>
             </Menu.Item>
+            <Menu.Item key="8">
+              <Link to='/requestForOther'>
+                <Icon type='check-circle'/>
+                <span>Request For Other</span>
+              </Link>
+            </Menu.Item>
+            <Menu.Item key="9">
+              <Link to='/requestForSelf'>
+                <Icon type='check-circle'/>
+                <span>Request For Self</span>
+              </Link>
+            </Menu.Item>
           </Menu>
         </div>
       </AppSidebar>

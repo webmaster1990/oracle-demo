@@ -9,6 +9,8 @@ const ManagerDashboard = React.lazy(() => import('./views/ManagerDashboard'));
 const Certifications = React.lazy(() => import('./views/Certifications'));
 const UserCertification = React.lazy(() => import('./views/Certifications/UserCertification'));
 const TrackRequest = React.lazy(() => import('./views/TrackRequest'));
+const RequestForOther = React.lazy(() => import('./views/TrackRequest/RequestForOther'));
+const RequestForSelf = React.lazy(() => import('./views/TrackRequest/RequestForSelf'));
 
 // https://github.com/ReactTraining/react-router/tree/master/packages/react-router-config
 const routes = [
@@ -21,6 +23,8 @@ const routes = [
   { path: '/certifications', name: 'Certifications', component: Certifications },
   { path: '/userCertification', name: 'User Certification', component: UserCertification },
   { path: '/trackRequest', name: 'Track Request', component: TrackRequest },
+  { path: '/requestForOther', name: 'Request For Other', component: RequestForOther },
+  { path: '/requestForSelf', name: 'Request For Self', component: RequestForSelf },
 ];
 
 export default routes;
