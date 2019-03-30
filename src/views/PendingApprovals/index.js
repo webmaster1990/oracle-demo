@@ -18,17 +18,17 @@ import '../MyAccess/myAccess.scss'
 
 class PendingApprovals extends Component {
   _dataContext = new ApiService();
-  
+
   state = {
     activeTab: 'all',
     isLoading: false,
     approvals: {},
   }
-  
+
   componentDidMount() {
     this.getData();
   }
-  
+
   getData = async () => {
     this.setState({
       isLoading: true,
@@ -45,9 +45,9 @@ class PendingApprovals extends Component {
       ...newState,
       isLoading: false,
     });
-    
+
   }
-  
+
   getPendingApprovals = () => {
     const {approvals = {}} = this.state;
     return (approvals.requests || []).concat((approvals.requests || [])).map((approval, index) => {
@@ -93,7 +93,7 @@ class PendingApprovals extends Component {
       )
     })
   }
-  
+
   render() {
     const {isLoading, approvals} = this.state;
     if (isLoading) {
@@ -171,6 +171,7 @@ class PendingApprovals extends Component {
                     <span className="btn mr-1 btn-dribbbl"><i className="fa fa-refresh"/></span>
                   </Col>
                 </Row>
+                <hr className="hr"/>
                 {
                   this.getPendingApprovals()
                 }

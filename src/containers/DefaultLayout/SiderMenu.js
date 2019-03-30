@@ -10,7 +10,7 @@ import './custom-sidebar.scss';
 const SubMenu = Menu.SubMenu;
 
 class SiderMenu extends React.Component {
-  
+
   render() {
     const { sideBarCollapsed, location: { pathname } } = this.props;
     return (
@@ -57,6 +57,12 @@ class SiderMenu extends React.Component {
               <Link to='/certifications'>
                 <Icon type='check-circle'/>
                 <span>Certifications</span>
+              </Link>
+            </Menu.Item>
+            <Menu.Item key="7">
+              <Link to='/trackRequest'>
+                <Icon type='check-circle'/>
+                <span>Track Request</span>
               </Link>
             </Menu.Item>
           </Menu>

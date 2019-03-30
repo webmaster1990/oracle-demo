@@ -7,6 +7,8 @@ const MyAccess = React.lazy(() => import('./views/MyAccess'));
 const PendingApprovals = React.lazy(() => import('./views/PendingApprovals'));
 const ManagerDashboard = React.lazy(() => import('./views/ManagerDashboard'));
 const Certifications = React.lazy(() => import('./views/Certifications'));
+const UserCertification = React.lazy(() => import('./views/Certifications/UserCertification'));
+const TrackRequest = React.lazy(() => import('./views/TrackRequest'));
 
 // https://github.com/ReactTraining/react-router/tree/master/packages/react-router-config
 const routes = [
@@ -17,6 +19,8 @@ const routes = [
   { path: '/pending-approvals', name: 'Pending Approvals', component: PendingApprovals },
   { path: '/manager-dashboard', name: 'Manager Dashboard', component: ManagerDashboard },
   { path: '/certifications', name: 'Certifications', component: Certifications },
+  { path: '/userCertification', name: 'User Certification', component: UserCertification },
+  { path: '/trackRequest', name: 'Track Request', component: TrackRequest },
 ];
 
 export default routes;
