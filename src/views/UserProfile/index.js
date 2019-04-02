@@ -1,52 +1,34 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import {Card, CardBody, Col, Nav, NavItem, NavLink, Row, TabContent, TabPane, Button, Badge} from "reactstrap";
+import { CardBody, Col, Nav, NavItem, NavLink, Row, TabContent, TabPane} from "reactstrap";
+import UserProfile from './UserProfile';
+import ChallengeQuestions from './ChallengeQuestions';
+import { Card } from 'antd';
+
 import '../MyAccess/myAccess.scss'
 class Profile extends Component{
-  constructor(props) {
-    super(props);
-    this.state = {
-      activeTab: new Array(4).fill('1'),
-    };
+  
+  state = {
+      activeTab: 'profile',
   }
-
-  profile = () => {
-    return (
-        <Col md="12" sm="12" >
-          <h5> ADUser1</h5>
-          <p>Pankaj Tripathi</p>
-          <p><b>First Name: </b>Pankaj</p>
-          <p><b>Last Name: </b>Tripathi</p>
-          <p><b>Display Name: </b>Pankaj Tripathi</p>
-          <p><b>User Login: </b>PTRIP</p>
-          <p><b>Email: </b></p>
-          <p><b>Organization Name: </b>Xellerate Users</p>
-          <p><b>Role: </b>EMP</p>
-          <p><b>Date Created: </b>March 18,2019 04:13 PM</p>
-          <p><b>Manager: </b>System Administrator</p>
-        </Col>
-    )
-  }
-
-  toggle = (tabPane, tab) => {
-    const newArray = this.state.activeTab.slice()
-    newArray[tabPane] = tab
+  
+  toggle = (activeTab) => () =>{
     this.setState({
-      activeTab: newArray,
+      activeTab,
     });
   }
 
   tabPane = () => {
     return (
       <>
-        <TabPane tabId="1">
-          {this.profile()}
+        <TabPane tabId="profile">
+          <UserProfile />
         </TabPane>
-        <TabPane tabId="2">
-          {this.profile()}
+        <TabPane tabId="subordinates">
+          <UserProfile />
         </TabPane>
-        <TabPane tabId="3">
-          {this.profile()}
+        <TabPane tabId="questions">
+          <ChallengeQuestions />
         </TabPane>
       </>
     );
@@ -76,35 +58,35 @@ class Profile extends Component{
             </Card>
           </Col>
           <Col lg="9" md="9" xs="12" sm="12">
-            <Card className="card-border">
+            <Card className="no-border no-padding">
               <CardBody>
                   <Nav tabs className="card-border">
                     <NavItem>
                       <NavLink
-                        active={this.state.activeTab[0] === '1'}
-                        onClick={() => { this.toggle(0, '1'); }}
+                        active={this.state.activeTab === 'profile'}
+                        onClick={this.toggle('profile')}
                       >
                         Profile
                       </NavLink>
                     </NavItem>
                     <NavItem>
                       <NavLink
-                        active={this.state.activeTab[0] === '2'}
-                        onClick={() => { this.toggle(0, '2'); }}
+                        active={this.state.activeTab === 'subordinates'}
+                        onClick={this.toggle('subordinates')}
                       >
                         Subordinates
                       </NavLink>
                     </NavItem>
                     <NavItem>
                       <NavLink
-                        active={this.state.activeTab[0] === '3'}
-                        onClick={() => { this.toggle(0, '3'); }}
+                        active={this.state.activeTab === 'questions'}
+                        onClick={this.toggle('questions')}
                       >
                         Challenge Questions
                       </NavLink>
                     </NavItem>
                   </Nav>
-                  <TabContent className="card-border" activeTab={this.state.activeTab[0]}>
+                  <TabContent className="card-border" activeTab={this.state.activeTab}>
                     {this.tabPane()}
                   </TabContent>
               </CardBody>

@@ -139,6 +139,17 @@ body {
   background: #fff;
 }
 
+.ant-card {
+  &.no-padding {
+    > .ant-card-body {
+      padding: 0;
+    }
+  }
+  &.no-border {
+    border: none;
+  }
+}
+
 .fa-15x {
   font-size: 1.5em;
 }

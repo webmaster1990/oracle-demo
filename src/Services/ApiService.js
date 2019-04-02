@@ -67,6 +67,14 @@ export class ApiService {
     return this.getData('selfservice/api/v1/requests?view=pendingApprovals');
   }
   
+  async getUserById(id) {
+    return this.getData(`selfservice/api/v1/users/${id}`);
+  }
+  
+  async getChallangeQuestionsById(id) {
+    return this.getData(`selfservice/api/v1/users/${id}/challengequestions`);
+  }
+  
   async getPendingRequests() {
     return this.getData('selfservice/api/v1/requests?requestStatus=pending');
   }
