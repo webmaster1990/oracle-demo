@@ -7,22 +7,31 @@ import { Card } from 'antd';
 
 import '../MyAccess/myAccess.scss'
 class Profile extends Component{
-  
+
   state = {
       activeTab: 'profile',
+    showProfile:false,
   }
-  
+
   toggle = (activeTab) => () =>{
     this.setState({
       activeTab,
     });
   }
 
+  showProfile = () =>{
+    const {showProfile} = this.state
+    if(!showProfile){
+      this.setState({showProfile: true})
+    }else {
+      this.setState({showProfile: false})
+    }
+  }
   tabPane = () => {
     return (
       <>
         <TabPane tabId="profile">
-          <UserProfile />
+          <UserProfile showProfile={this.state.showProfile}/>
         </TabPane>
         <TabPane tabId="subordinates">
           <UserProfile />
@@ -52,7 +61,7 @@ class Profile extends Component{
                   <h5 style={{color:"#999"}}>EMP</h5>
                 </Col>
                 <Col className="text-center">
-                  <Link to="/" style={{fontSize:"20px"}}>Update Profile</Link>
+                  <a onClick={this.showProfile} style={{fontSize:"20px", color:"blue"}}>Update Profile</a>
                 </Col>
               </CardBody>
             </Card>

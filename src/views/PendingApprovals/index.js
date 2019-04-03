@@ -39,7 +39,6 @@ class PendingApprovals extends Component {
     if (!allRes.error) {
       newState.approvals = allRes;
     }
-    debugger
     console.log(newState)
     this.setState({
       ...newState,

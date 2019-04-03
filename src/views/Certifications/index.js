@@ -9,17 +9,19 @@ import {
 import './certifications.scss'
 import {Link} from "react-router-dom";
 import {Table, Progress} from 'antd';
+import { ApiService } from '../../Services/ApiService';
+import moment from 'moment';
 
 const columns = [{
   title: 'TITLE',
-  dataIndex: 'title',
+  dataIndex: 'name',
   sorter: true,
-  key: 'title',
+  key: 'name',
 }, {
   title: 'Type',
   dataIndex: 'type',
   key: 'type',
-  render: () => <Badge className={"badge mt-2 mb-2 small orange"}>User</Badge>
+  render: (type)  => <Badge className={"badge mt-2 mb-2 small orange"}>{type}</Badge>
 }, {
   title: 'PROGRESS',
   dataIndex: 'progress',
@@ -27,9 +29,10 @@ const columns = [{
   render: () => <Progress percent={30} size="small"/>
 }, {
   title: 'CREATION DATE',
-  dataIndex: 'creationDate',
+  dataIndex: 'createdDate',
   sorter: true,
-  key: 'creationDate',
+  key: 'createdDate',
+  render: (createdDate) => <div>{moment(createdDate).format('MMMM Do YYYY h:mm:ss a')}</div>
 }, {
   title: 'EXPIRES ON',
   dataIndex: 'expiresOn',
@@ -43,44 +46,18 @@ const columns = [{
 },
 
 ]
-const data = [{
-  key: '1',
-  title: 'John Brown fdsfdsf',
-  creationDate: 'March 20,2019 10:20 PM',
-}, {
-  key: '2',
-  name: 'Jim Green',
-  creationDate: 'March 20,2019 10:20 PM',
-  expiresOn: '',
-
-}, {
-  key: '3',
-  title: 'John Brown fdsfdsf',
-  creationDate: 'March 20,2019 10:20 PM',
-}, {
-  key: '4',
-  name: 'Jim Green',
-  creationDate: 'March 20,2019 10:20 PM',
-  expiresOn: '',
-
-}, {
-  key: '5',
-  title: 'John Brown fdsfdsf',
-  creationDate: 'March 20,2019 10:20 PM',
-}, {
-  key: '6',
-  name: 'Jim Green',
-  creationDate: 'March 20,2019 10:20 PM',
-  expiresOn: '',
-
-}]
 
 class Certifications extends Component {
+  _dataContext = new ApiService();
   constructor(props) {
     super(props);
     this.state = {
       activeFilter: false,
+      certifications:[]
     };
+  }
+  componentDidMount() {
+    this.getCertifications()
   }
 
   onFilterOpen = () => {
@@ -92,8 +69,15 @@ class Certifications extends Component {
 
   }
 
+  getCertifications = async () => {
+    const data = await this._dataContext.getCertifications();
+    this.setState({
+      certifications: data.certifications
+    });
+  }
+
   render() {
-    const {activeFilter} = this.state
+    const {activeFilter,} = this.state
     return (
       <div className="animated fadeIn certification">
         <Row>
@@ -134,7 +118,7 @@ class Certifications extends Component {
                       onClick={this.onFilterOpen}>Search <i className="fa fa-filter blue"/></Button>
               <span className="btn ml-2 btn-dribbbl remove-btn-border-radius"><i className="fa fa-refresh"/></span>
             </div>
-            <Table className="table-with-scroll" columns={columns} dataSource={data}/>
+            <Table className="table-with-scroll" columns={columns} dataSource={this.state.certifications}/>
           </Col>
         </Row>
       </div>
