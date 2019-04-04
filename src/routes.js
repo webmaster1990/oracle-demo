@@ -19,6 +19,7 @@ const Proxy = React.lazy(() => import('./views/MyAccess/Proxy'));
 const searchUserProfile = React.lazy(() => import('./views/UserProfile/searchUserProfile'));
 const userList = React.lazy(() => import('./views/UserProfile/userList'));
 const compareAccess = React.lazy(() => import('./views/Access/compareAccess'));
+const TargetAccount = React.lazy(() => import('./views/TargetAccount'));
 
 // https://github.com/ReactTraining/react-router/tree/master/packages/react-router-config
 const routes = [
@@ -37,10 +38,11 @@ const routes = [
   { path: '/myaccess/entitlement', name: 'Application', component: Entitlement },
   { path: '/myaccess/roles', name: 'Roles', component: Roles },
   { path: '/myaccess/proxy', name: 'Proxy', component: Proxy },
-  { path: '/searchUserProfile', name: 'Searched User Profile', component: searchUserProfile },
-  { path: '/userList', name: 'User List', component: userList },
-  { path: '/compareAccess', name: 'Compare Access', component: compareAccess },
-  { path: '/changePassword', name: 'Change Password', component: changePassword },
+  { path: '/search-user-profile', name: 'Searched User Profile', component: searchUserProfile },
+  { path: '/user-list', name: 'User List', component: userList },
+  { path: '/compare-access', name: 'Compare Access', component: compareAccess },
+  { path: '/change-password', name: 'Change Password', component: changePassword },
+  { path: '/target-account', name: 'Target Account', component: TargetAccount },
 ];
 
 export default routes;

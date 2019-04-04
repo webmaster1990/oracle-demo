@@ -100,7 +100,7 @@ class SiderMenu extends React.Component {
                 </Link>
               </Menu.Item>
               <Menu.Item key="changePassword">
-              <Link to='/changePassword'>
+              <Link to='/change-password'>
                 <span>Change Password</span>
               </Link>
             </Menu.Item>

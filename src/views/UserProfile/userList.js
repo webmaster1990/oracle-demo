@@ -13,7 +13,7 @@ const columns = [{
   title: 'User Login',
   dataIndex: 'userLogin',
   key: 'userLogin',
-  render: () => <div><img src={require('../../assets/avatars/6.jpg')} className="img-avatar" alt="admin@bootstrapmaster.com" />  <Link to="/searchUserProfile">NOEL</Link> </div> ,
+  render: () => <div><img src={require('../../assets/avatars/6.jpg')} className="img-avatar" alt="admin@bootstrapmaster.com" />  <Link to="/search-user-profile">NOEL</Link> </div> ,
 }, {
   title: 'Display Name',
   dataIndex: 'displayName',

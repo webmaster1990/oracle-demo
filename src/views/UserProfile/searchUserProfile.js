@@ -24,7 +24,7 @@ class searchUserProfile extends Component{
   }
 
   onClick = () =>{
-    this.props.history.push("/compareAccess");
+    this.props.history.push("/compare-access");
   }
 
 

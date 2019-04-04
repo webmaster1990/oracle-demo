@@ -8,17 +8,90 @@ import {
   Input,
   Row,
   CardHeader,
+  Modal,
+  ModalHeader,
+  ModalBody, Table
 } from "reactstrap";
 import {Checkbox, Tabs, Icon} from "antd";
 const TabPane = Tabs.TabPane;
 class compareAccess extends Component{
+  constructor(props) {
+    super(props);
+    this.state = {
+      modal: false,
+      info: false,
+    };
+  }
+    callback = (key) => {
+  }
 
-  callback = (key) => {
+  toggleInfo = () => {
+    this.setState({
+      info: !this.state.info,
+    });
+  }
+
+  applicationModal =()=>{
+    return(
+      <div>
+        <Modal isOpen={this.state.info} toggle={this.toggleInfo}
+               className='modal-info modal-dialog-centered' >
+          <ModalHeader toggle={this.toggleInfo} className="modal-title">Details</ModalHeader>
+          <ModalBody>
+            <Row>
+              <Col md="6" sm="12" xs="12">
+                <Table responsive>
+                  <tbody>
+                  <tr>
+                    <td><p className="mb-0"><b>Entity Key :</b></p></td>
+                    <td><p className="mb-0">4</p></td>
+                  </tr>
+                  <tr>
+                    <td><p className="mb-0"><b>Display Name :</b></p></td>
+                    <td><p className="mb-0">ADUser1</p></td>
+                  </tr>
+                  <tr>
+                    <td><p className="mb-0"><b>Name :</b></p></td>
+                    <td><p className="mb-0">ADUser1</p></td>
+                  </tr>
+                  <tr>
+                    <td><p className="mb-0"><b>Type :</b></p></td>
+                    <td><p className="mb-0">Application</p></td>
+                  </tr>
+                  <tr>
+                    <td><p className="mb-0"><b>Category :</b></p></td>
+                    <td><p className="mb-0">Application</p></td>
+                  </tr>
+                  <tr>
+                    <td><p className="mb-0"><b>Description :</b></p></td>
+                    <td><p className="mb-0">ADUser1</p></td>
+                  </tr>
+                  <tr>
+                    <td><p className="mb-0"><b>Risk Level :</b></p></td>
+                    <td><p className="mb-0">High Risk</p></td>
+                  </tr>
+                  <tr>
+                    <td><p className="mb-0"><b>Certifiable :</b></p></td>
+                    <td><p className="mb-0"><Checkbox/></p></td>
+                  </tr>
+                  <tr>
+                    <td><p className="mb-0"><b>Aucitable :</b></p></td>
+                    <td><p className="mb-0"><Checkbox/></p></td>
+                  </tr>
+                  </tbody>
+                </Table>
+              </Col>
+            </Row>
+          </ModalBody>
+        </Modal>
+      </div>
+    )
   }
 
   render() {
     return(
       <div className="animated fadeIn">
+        {this.applicationModal()}
         <Row>
           <Col md="5" sm="12" xs="12">
             <FormGroup>
@@ -63,10 +136,9 @@ class compareAccess extends Component{
                           </Col>
                           <Col md="10" sm="12" xs="12">
                             <p><b>Access Control Assistance Operators</b></p>
-
                           </Col>
                           <Col md="1" sm="12" xs="12">
-                            <Icon type="info-circle" theme="twoTone" className="pull-right"/>
+                            <Icon type="info-circle" theme="twoTone" className="text-right" onClick={this.toggleInfo}/>
                           </Col>
                         </Row>
                         <Row>
@@ -237,7 +309,7 @@ class compareAccess extends Component{
 
                             </Col>
                             <Col md="1" sm="12" xs="12">
-                              <Icon type="info-circle" theme="twoTone" className="pull-right"/>
+                              <Icon type="info-circle" theme="twoTone" className="text-right" onClick={this.toggleInfo}/>
                             </Col>
                           </Row>
                           <Row>
@@ -263,7 +335,7 @@ class compareAccess extends Component{
 
                             </Col>
                             <Col md="1" sm="12" xs="12">
-                              <Icon type="info-circle" theme="twoTone" className="pull-right"/>
+                              <Icon type="info-circle" theme="twoTone" className="text-right" onClick={this.toggleInfo}/>
                             </Col>
                           </Row>
                           <Row>

@@ -25,7 +25,25 @@ body {
     padding: 15px;
   }
 }
+.modal-info {
+  .modal-content {
+    border:0px ;
+    border-radius: 0;
+  }
+  .modal-header {
+    border-top-left-radius: 0;
+     border-top-right-radius: 0;
+  }
+}
+.modal-title {
+  color: #fff !important;
+}
 
+.table td {
+  padding: 0;
+  vertical-align: top;
+   border-top: 0;
+}
 .badge {
   color: #fff;
   font-size: 13px;

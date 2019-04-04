@@ -9,8 +9,8 @@ import {
   InputGroup,
   InputGroupAddon,
   InputGroupText,
-  Label,
-  Row
+  Label, Modal, ModalBody, ModalHeader,
+  Row, Table
 } from "reactstrap";
 import {Checkbox, Icon, Tabs} from 'antd';
 import moment from "../PendingApprovals";
@@ -18,8 +18,70 @@ import moment from "../PendingApprovals";
 const TabPane = Tabs.TabPane;
 
 class RequestForSelf extends Component {
-
-
+  constructor(props) {
+    super(props);
+    this.state = {
+      modal: false,
+      info: false,
+    };
+  }
+  toggleInfo = () => {
+    this.setState({
+      info: !this.state.info,
+    });
+  }
+  detailModal =()=>{
+    return(
+      <div>
+        <Modal isOpen={this.state.info} toggle={this.toggleInfo}
+               className='modal-info modal-dialog-centered' >
+          <ModalHeader toggle={this.toggleInfo} className="modal-title">Details</ModalHeader>
+          <ModalBody>
+            <Row>
+              <Col md="6" sm="12" xs="12">
+                <Table responsive>
+                  <tbody>
+                  <tr>
+                    <td><p className="mb-0"><b>Entity Key :</b></p></td>
+                    <td><p className="mb-0">4</p></td>
+                  </tr>
+                  <tr>
+                    <td><p className="mb-0"><b>Display Name :</b></p></td>
+                    <td><p className="mb-0">ADUser1</p></td>
+                  </tr>
+                  <tr>
+                    <td><p className="mb-0"><b>Name :</b></p></td>
+                    <td><p className="mb-0">ADUser1</p></td>
+                  </tr>
+                  <tr>
+                    <td><p className="mb-0"><b>Type :</b></p></td>
+                    <td><p className="mb-0">Application</p></td>
+                  </tr>
+                  <tr>
+                    <td><p className="mb-0"><b>Category :</b></p></td>
+                    <td><p className="mb-0">Application</p></td>
+                  </tr>
+                  <tr>
+                    <td><p className="mb-0"><b>Description :</b></p></td>
+                    <td><p className="mb-0">ADUser1</p></td>
+                  </tr>
+                  <tr>
+                    <td><p className="mb-0"><b>Risk Level :</b></p></td>
+                    <td><p className="mb-0">High Risk</p></td>
+                  </tr>
+                  <tr>
+                    <td><p className="mb-0"><b>Certifiable :</b></p></td>
+                    <td><p className="mb-0"><Checkbox/></p></td>
+                  </tr>
+                  </tbody>
+                </Table>
+              </Col>
+            </Row>
+          </ModalBody>
+        </Modal>
+      </div>
+    )
+  }
   callback = (key) => {
     console.log(key);
   }
@@ -27,6 +89,7 @@ class RequestForSelf extends Component {
   render() {
     return (
       <div className="animated fadeIn certification">
+        {this.detailModal()}
         <Row>
           <Col md="12" sm="12" xs="12" lg="3" className="border-right left-filter ">
             <p>Filters</p>
@@ -76,7 +139,7 @@ class RequestForSelf extends Component {
                           </Col>
                           <Col md="9" sm="12" xs="12">
                             <p className="mb-0"><b>ADUser1 </b>
-                              <Icon type="info-circle" twoToneColor="#64a6ea" theme="twoTone"/>
+                              <Icon type="info-circle" twoToneColor="#64a6ea" theme="twoTone" onClick={this.toggleInfo}/>
                             </p>
                             <p className="mb-0">
                               <Icon type="check-circle" theme="twoTone" twoToneColor="#ea4b51"/>
@@ -97,7 +160,7 @@ class RequestForSelf extends Component {
                           </Col>
                           <Col md="9" sm="12" xs="12">
                             <p className="mb-0"><b>Access Control Assistance Operators </b>
-                              <Icon type="info-circle" twoToneColor="#64a6ea"  theme="twoTone"/>
+                              <Icon type="info-circle" twoToneColor="#64a6ea" theme="twoTone" onClick={this.toggleInfo}/>
                             </p>
                             <p className="mb-0">
                               <Icon type="check-circle" theme="twoTone" twoToneColor="#fbb01b"/>
@@ -116,7 +179,7 @@ class RequestForSelf extends Component {
                           </Col>
                           <Col md="9" sm="12" xs="12">
                             <p className="mb-0"><b>Access Control Assistance Operators </b>
-                              <Icon type="info-circle"  twoToneColor="#64a6ea" theme="twoTone"/>
+                              <Icon type="info-circle" twoToneColor="#64a6ea" theme="twoTone" onClick={this.toggleInfo}/>
                             </p>
                             <p className="mb-0">
                               <Icon type="check-circle" theme="twoTone" twoToneColor="#fbb01b"/>
@@ -135,7 +198,7 @@ class RequestForSelf extends Component {
                           </Col>
                           <Col md="9" sm="12" xs="12">
                             <p className="mb-0"><b>Access Control Assistance Operators </b>
-                              <Icon type="info-circle" twoToneColor="#64a6ea" theme="twoTone"/>
+                              <Icon type="info-circle" twoToneColor="#64a6ea" theme="twoTone" onClick={this.toggleInfo}/>
                             </p>
                             <p className="mb-0">
                               <Icon type="check-circle" theme="twoTone" twoToneColor="#fbb01b"/>
